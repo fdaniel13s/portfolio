@@ -1,0 +1,111 @@
+---
+let projects: Array<{
+    title: string,
+    categories: string[],
+    description: string,
+    image: string[],
+    technologies: string[],
+    link?: string,
+    github?: string
+}>;
+projects = [
+    {
+        title: "Chaquitaclla",
+        categories: ["Frontend", "Backend", "Mobile"],
+        description: "Plataforma web y móvil para el sector agrícola desarrollada con la arquitectura MVC" +
+            " (Modelo Vista Controlador), aplicando el enfoque de DDD (Domain-Driven Design). " +
+            "El frontend fue creado con Vue.js y PrimeVue, mientras que el backend se construyó con una API RESTful en " +
+            "C# y .NET Core, utilizando patrones de diseño como inyección de dependencias y Observer, " +
+            "siguiendo buenas prácticas de desarrollo. La versión móvil se desarrolló de manera nativa" +
+            " para Android utilizando XML y Compose en Kotlin, optimizando la experiencia de usuario en dispositivos móviles.",
+        image: ["/src/images/projects/chaquitaclla.png"],
+        technologies: ["Kotlin", "Android Compose", "Firebase", "Vue.JS", "PrimeVue", "C#", ".NET Core"],
+        github: "https://github.com/fdaniel13s/RESTfulAPI-Chaquitaclla-NETCore",
+    },
+    {
+        title: "EcoMarket",
+        description: "Software de e-commerce que facilita la compra y venta de productos defectuosos o\n" +
+            "próximos a vencer a precios reducidos. Desarrollado con Spring Boot para la API RESTful y Angular\n" +
+            "con TypeScript para el frontend, siguiendo la arquitectura MVC.",
+        categories: ["Frontend", "Backend"],
+        image: ["/src/images/projects/Ecomarket.jpg"],
+        technologies: ["Java", "Spring Boot", "Angular", "TypeScript"],
+        github : "https://github.com/fdaniel13s/RESTfulAPI-Ecomarket-SpringBoot.git"
+    },
+    {
+        title: "Gestor de Letras/Facturas para Factoring",
+        description: "Aplicación web para la gestión de letras y facturas de empresas de factoring. " +
+            "Desarrollada con Spring Boot para el backend y Vue.js para el frontend, siguiendo la arquitectura MVC.",
+        categories: ["Frontend", "Backend"],
+        image: ["/src/images/projects/Factoring.png" , "/src/images/projects/Factoring2.png"],
+        technologies: ["Java", "Spring Boot", "Vue.js"],
+        github: "https://github.com/fdaniel13s/RESTFULApi-si642-gestor-factoring"
+    }
+]
+---
+
+<div id="projects" class="projects-section grid grid-cols-1 md:grid-cols-2 gap-8 mt-4 mx-16 rounded-3xl">
+    {projects.map((project) => (
+            <div class="project-card p-6 rounded-lg shadow-lg bg-white dark:bg-neutral-900">
+                <div class="carousel relative w-full h-56 overflow-hidden rounded-t-lg">
+                    {project.image.map((img, index) => (
+                            <img src={img} alt={project.title} class={`carousel-image absolute w-full h-56 object-cover transition-opacity duration-500 ${index === 0 ? 'opacity-100' : 'opacity-0'}`} />
+                    ))}
+                    <button class="prev absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-r-lg">‹</button>
+                    <button class="next absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-l-lg">›</button>
+                </div>
+                <div class="p-4">
+                    <h3 class="text-2xl font-bold text-gray-800 dark:text-white">{project.title}</h3>
+                    <p class="mt-2 text-gray-600 dark:text-gray-300 text-justify">{project.description}</p>
+                    <div class="mt-4">
+                        <h4 class="text-lg font-semibold text-gray-800 dark:text-white">Technologies:</h4>
+                        <ul class="list-disc list-inside">
+                            {project.technologies.map((tech) => (
+                                    <li class="text-gray-600 dark:text-gray-300">{tech}</li>
+                            ))}
+                        </ul>
+                    </div>
+                    <div class="mt-4 flex space-x-4">
+                        {project.link && (
+                                <a href={project.link || "#"} target="_blank" class="text-blue-500 hover:underline">Live Demo</a>
+                        )}
+                        {project.github && (
+                                <a href={project.github} target="_blank" class="text-blue-500 hover:underline">GitHub</a>
+                        )}
+                    </div>
+                </div>
+            </div>
+    ))}
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const carousels = document.querySelectorAll('.carousel');
+        carousels.forEach(carousel => {
+            let currentIndex = 0;
+            const images = carousel.querySelectorAll('.carousel-image');
+            const totalImages = images.length;
+            const prevButton = carousel.querySelector('.prev');
+            const nextButton = carousel.querySelector('.next');
+
+            function showImage(index:number) {
+                images.forEach((img, i) => {
+                    img.classList.toggle('opacity-100', i === index);
+                    img.classList.toggle('opacity-0', i !== index);
+                });
+            }
+
+            prevButton.addEventListener('click', () => {
+                currentIndex = (currentIndex - 1 + totalImages) < 0 ? totalImages - 1 : (currentIndex - 1 + totalImages) % totalImages;
+                showImage(currentIndex);
+            });
+
+            nextButton.addEventListener('click', () => {
+                currentIndex = (currentIndex + 1) % totalImages;
+                showImage(currentIndex);
+            });
+
+            showImage(currentIndex);
+        });
+    });
+</script>

@@ -1,0 +1,81 @@
+---
+const technicalSkills = [
+    "JavaScript", "TypeScript", "React", "Node.js", "GraphQL", "Docker", "Kubernetes"
+];
+
+const softSkills = [
+    "Communication", "Teamwork", "Problem-solving", "Adaptability", "Creativity", "Time management", "Leadership"
+];
+---
+<div id="skills" class="skills-section mt-12 mx-4 md:mx-32  p-8 rounded-3xl bg-neutral-900 flex flex-col items-center">
+    <div  class="w-full max-w-4xl mx-auto  ">
+        <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-4 text-center">Habilidades</h2>
+        <!-- Toggle buttons -->
+        <div class="flex mb-4 justify-center">
+            <label class="mr-0 cursor-pointer">
+                <input type="radio" name="skillType" value="technical" class="hidden" id="technical" />
+                <span class="px-4 py-2 border rounded-l" id="technicalLabel">Técnicas</span>
+            </label>
+
+            <label class="cursor-pointer">
+                <input type="radio" name="skillType" value="soft" class="hidden" id="soft" />
+                <span class="px-4 py-2 border rounded-r" id="softLabel">Blandas</span>
+            </label>
+        </div>
+        <!-- Skills List -->
+        <div class="skills-list w-full flex justify-center">
+            <ul id="skillsList" class="w-full max-w-2xl">
+                {technicalSkills.map((skill) => (
+                        <li class="text-xl dark:text-white text-white py-1 text-center">{skill}</li>
+                ))}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const technicalSkills = [
+            "JavaScript", "TypeScript", "React", "Node.js", "GraphQL", "Docker", "Kubernetes"
+        ];
+
+        const softSkills = [
+            "Communication", "Teamwork", "Problem-solving", "Adaptability", "Creativity", "Time management", "Leadership"
+        ];
+
+        const technicalRadio = document.getElementById('technical');
+        const softRadio = document.getElementById('soft');
+        const skillsList = document.getElementById('skillsList');
+        const technicalLabel = document.getElementById('technicalLabel');
+        const softLabel = document.getElementById('softLabel');
+
+        function updateSkills(isTechnical) {
+            skillsList.innerHTML = '';
+            const skills = isTechnical ? technicalSkills : softSkills;
+            skills.forEach(skill => {
+                const li = document.createElement('li');
+                li.className = 'text-xl text-white py-1';
+                li.textContent = skill;
+                skillsList.appendChild(li);
+            });
+
+            if (isTechnical) {
+                technicalLabel.classList.add('bg-neutral-900', 'text-white');
+                technicalLabel.classList.remove('bg-gray-200', 'text-gray-700');
+                softLabel.classList.add('bg-gray-200', 'text-gray-700');
+                softLabel.classList.remove('bg-neutral-900', 'text-white');
+            } else {
+                softLabel.classList.add('bg-neutral-900', 'text-white');
+                softLabel.classList.remove('bg-gray-200', 'text-gray-700');
+                technicalLabel.classList.add('bg-gray-200', 'text-gray-700');
+                technicalLabel.classList.remove('bg-neutral-900', 'text-white');
+            }
+        }
+
+        technicalRadio.addEventListener('change', () => updateSkills(true));
+        softRadio.addEventListener('change', () => updateSkills(false));
+
+        // Initialize with technical skills
+        updateSkills(true);
+    });
+</script>
