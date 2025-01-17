@@ -7,5 +7,4 @@ export default defineConfig({
   integrations: [tailwind()],
   //Configurations to deploy to github pages
   site: 'https://fdaniel13s.github.io',
-  base: '/portfolio',
 });
