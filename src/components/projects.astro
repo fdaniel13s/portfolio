@@ -6,7 +6,7 @@ let projects: Array<{
     image: string[],
     technologies: string[],
     link?: string,
-    github?: string
+    github?: string[],
 }>;
 projects = [
     {
@@ -20,7 +20,7 @@ projects = [
             " para Android utilizando XML y Compose en Kotlin, optimizando la experiencia de usuario en dispositivos móviles.",
         image: ["/images/projects/chaquitaclla.png"],
         technologies: ["Kotlin", "Android Compose", "Firebase", "Vue.JS", "PrimeVue", "C#", ".NET Core"],
-        github: "https://github.com/fdaniel13s/RESTfulAPI-Chaquitaclla-NETCore",
+        github: ["https://github.com/fdaniel13s/RESTfulAPI-Chaquitaclla-NETCore", "https://github.com/upc-pre-202402-CC238-ws61-Error-404/AppMovilesFrontend"],
     },
     {
         title: "EcoMarket",
@@ -30,7 +30,7 @@ projects = [
         categories: ["Frontend", "Backend"],
         image: ["/images/projects/Ecomarket.jpg"],
         technologies: ["Java", "Spring Boot", "Angular", "TypeScript"],
-        github : "https://github.com/fdaniel13s/RESTfulAPI-Ecomarket-SpringBoot.git"
+        github : ["https://github.com/fdaniel13s/RESTfulAPI-Ecomarket-SpringBoot.git"]
     },
     {
         title: "Gestor de Letras/Facturas para Factoring",
@@ -39,7 +39,7 @@ projects = [
         categories: ["Frontend", "Backend"],
         image: ["/images/projects/Factoring.png" , "/portfolio/images/projects/Factoring2.png"],
         technologies: ["Java", "Spring Boot", "Vue.js"],
-        github: "https://github.com/fdaniel13s/RESTFULApi-si642-gestor-factoring"
+        github: ["https://github.com/fdaniel13s/RESTFULApi-si642-gestor-factoring"]
     }
 ]
 ---
@@ -69,9 +69,9 @@ projects = [
                         {project.link && (
                                 <a href={project.link || "#"} target="_blank" class="text-blue-500 hover:underline">Live Demo</a>
                         )}
-                        {project.github && (
-                                <a href={project.github} target="_blank" class="text-blue-500 hover:underline">GitHub</a>
-                        )}
+                        {project.github && project.github.map((link, index) => (
+                                <a href={link} target="_blank" class="text-blue-500 hover:underline">GitHub {index + 1} </a>
+                        ))}
                     </div>
                 </div>
             </div>
