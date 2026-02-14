@@ -1,0 +1,309 @@
+﻿---
+---
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lady, quieres ser mi San Valentin?</title>
+    <style>
+      :root {
+        --bg-1: #fff4e6;
+        --bg-2: #ffd9e0;
+        --ink: #2f1b1f;
+        --accent: #d62853;
+        --accent-2: #ff7b54;
+        --card: rgba(255, 255, 255, 0.84);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.65), transparent 45%),
+          radial-gradient(circle at 80% 0%, rgba(255, 123, 84, 0.35), transparent 42%),
+          linear-gradient(150deg, var(--bg-1), var(--bg-2));
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+        padding: 1.25rem;
+      }
+
+      .card {
+        width: min(720px, 100%);
+        background: var(--card);
+        backdrop-filter: blur(4px);
+        border: 1px solid rgba(255, 255, 255, 0.8);
+        border-radius: 24px;
+        padding: clamp(1.25rem, 4vw, 2.4rem);
+        box-shadow: 0 24px 54px rgba(90, 22, 37, 0.2);
+        position: relative;
+        animation: rise 720ms ease both;
+      }
+
+      .date-badge {
+        display: inline-block;
+        background: #fff;
+        color: var(--accent);
+        font-weight: 700;
+        padding: 0.35rem 0.75rem;
+        border-radius: 999px;
+        letter-spacing: 0.03em;
+        font-size: 0.9rem;
+      }
+
+      h1 {
+        margin: 0.75rem 0 0.5rem;
+        font-size: clamp(1.8rem, 5vw, 3rem);
+        line-height: 1.12;
+      }
+
+      p {
+        margin: 0;
+        font-size: clamp(1rem, 2.5vw, 1.16rem);
+        line-height: 1.65;
+      }
+
+      .actions {
+        margin-top: 1.6rem;
+        min-height: 56px;
+        display: flex;
+        gap: 0.85rem;
+        align-items: center;
+        flex-wrap: wrap;
+        position: relative;
+      }
+
+      button {
+        border: none;
+        border-radius: 999px;
+        padding: 0.8rem 1.25rem;
+        font-size: 1rem;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform 180ms ease, box-shadow 180ms ease;
+      }
+
+      #yesBtn {
+        background: linear-gradient(120deg, var(--accent), #ff3f6f);
+        color: #fff;
+        box-shadow: 0 10px 25px rgba(214, 40, 83, 0.35);
+      }
+
+      #yesBtn:hover {
+        transform: translateY(-2px);
+      }
+
+      #thinkBtn {
+        background: #fff;
+        color: var(--ink);
+        border: 1px solid rgba(47, 27, 31, 0.12);
+        position: relative;
+      }
+
+      #answer {
+        margin-top: 1.25rem;
+        font-weight: 700;
+        color: var(--accent);
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 240ms ease, transform 240ms ease;
+      }
+
+      #answer.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .back {
+        margin-top: 1.25rem;
+        display: inline-block;
+        color: var(--ink);
+        text-decoration: none;
+        border-bottom: 1px dashed rgba(47, 27, 31, 0.35);
+      }
+
+      .music-wrap {
+        margin-top: 1rem;
+        display: flex;
+        gap: 0.65rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      #musicBtn {
+        background: #2f1b1f;
+        color: #fff;
+        box-shadow: 0 10px 22px rgba(47, 27, 31, 0.2);
+      }
+
+      #musicBtn:disabled {
+        opacity: 0.65;
+        cursor: default;
+      }
+
+      .music-note {
+        font-size: 0.9rem;
+        opacity: 0.8;
+      }
+
+      .sr-only-player {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+      }
+
+      .heart {
+        position: fixed;
+        width: 16px;
+        height: 16px;
+        background: var(--accent-2);
+        transform: rotate(45deg);
+        animation: float 1.9s linear forwards;
+        pointer-events: none;
+      }
+
+      .heart::before,
+      .heart::after {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: inherit;
+      }
+
+      .heart::before {
+        top: -8px;
+        left: 0;
+      }
+
+      .heart::after {
+        left: -8px;
+        top: 0;
+      }
+
+      @keyframes rise {
+        from {
+          opacity: 0;
+          transform: translateY(16px) scale(0.98);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      @keyframes float {
+        to {
+          transform: translateY(-220px) rotate(45deg) scale(0.6);
+          opacity: 0;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .actions {
+          min-height: 102px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <span class="date-badge">14 de febrero</span>
+      <h1>Lady, quieres ser mi San Valentin?</h1>
+      <p>
+        Quiero invitarte a una cita especial: Momentos divertidos a tu lado, ya que si tenemos esa química
+       , bueno al menos yo la siento, me compartiría compartir un momento juntos ya que si te quiero en mi vida
+        es complicado pero me encantaría que este día sea el comienzo de muchas aventuras y retos.
+      </p>
+
+      <div class="actions" id="actions">
+        <button id="yesBtn" type="button">Si, acepto</button>
+        <button id="thinkBtn" type="button">Lo pienso</button>
+      </div>
+
+      <div class="music-wrap">
+        <button id="musicBtn" type="button">Activar musica de Morat</button>
+      </div>
+      <div id="musicHost" class="sr-only-player" aria-hidden="true"></div>
+
+      <p id="answer">Sabia que dirias que si. Te prometo un 14 de febrero inolvidable.
+          Lugar: En mi corazón, jajaja.
+          Hora: 5 PM
+      </p>
+
+      <a class="back" href="/">Volver al inicio</a>
+    </main>
+
+    <script>
+      const yesBtn = document.getElementById("yesBtn");
+      const thinkBtn = document.getElementById("thinkBtn");
+      const answer = document.getElementById("answer");
+      const actions = document.getElementById("actions");
+      const musicBtn = document.getElementById("musicBtn");
+      const musicStatus = document.getElementById("musicStatus");
+      const musicHost = document.getElementById("musicHost");
+      const MORAT_VIDEO_ID = "DWDjXO6WYvk";
+      let musicStarted = false;
+
+      function createHearts() {
+        for (let i = 0; i < 14; i += 1) {
+          const heart = document.createElement("span");
+          heart.className = "heart";
+          heart.style.left = `${10 + Math.random() * 80}%`;
+          heart.style.bottom = `${12 + Math.random() * 22}px`;
+          heart.style.animationDelay = `${Math.random() * 0.45}s`;
+          document.body.appendChild(heart);
+          setTimeout(() => heart.remove(), 2100);
+        }
+      }
+
+      function startMusic() {
+        if (musicStarted) return;
+        musicStarted = true;
+
+        const player = document.createElement("iframe");
+        player.width = "1";
+        player.height = "1";
+        player.style.border = "0";
+        player.allow = "autoplay";
+        player.title = "Morat romantic background music";
+        player.src = `https://www.youtube.com/embed/${MORAT_VIDEO_ID}?autoplay=1&loop=1&playlist=${MORAT_VIDEO_ID}`;
+        musicHost.appendChild(player);
+
+        musicStatus.textContent = "Sonando: Morat";
+        musicBtn.textContent = "Musica activada";
+        musicBtn.disabled = true;
+      }
+
+      yesBtn.addEventListener("click", () => {
+        answer.classList.add("show");
+        createHearts();
+        startMusic();
+      });
+
+      function moveThinkBtn() {
+        if (window.matchMedia("(pointer: coarse)").matches) return;
+        const maxX = Math.max(0, actions.clientWidth - thinkBtn.offsetWidth - 8);
+        const maxY = Math.max(0, actions.clientHeight - thinkBtn.offsetHeight - 6);
+        thinkBtn.style.left = `${Math.random() * maxX}px`;
+        thinkBtn.style.top = `${Math.random() * maxY}px`;
+      }
+
+      thinkBtn.addEventListener("mouseenter", moveThinkBtn);
+      thinkBtn.addEventListener("click", () => {
+        answer.textContent = "No hay prisa, pero me encantaria que sea contigo.";
+        answer.classList.add("show");
+      });
+      musicBtn.addEventListener("click", startMusic);
+    </script>
+  </body>
+</html>
