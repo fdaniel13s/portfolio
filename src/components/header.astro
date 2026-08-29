@@ -1,102 +1,183 @@
 ---
-//import ThemeToggle from "./ThemeToggle.astro"
+import ThemeToggle from './theme-toggle.astro';
 
 const navItems = [
   {
-    title: "Acerca de mí",
-    label: "Acerca de mí",
-    url: "/#aboutme",
+    title: "Sobre Mí",
+    label: "aboutme",
+    url: "#aboutme",
+  },
+  {
+    title: "Arquitectura",
+    label: "architecture",
+    url: "#architecture",
   },
   {
     title: "Habilidades",
-    label: "habilidades",
-    url: "/#skills",
+    label: "skills",
+    url: "#skills",
   },
   {
     title: "Proyectos",
-    label: "proyectos",
-    url: "/#projects",
+    label: "projects",
+    url: "#projects",
+  },
+  {
+    title: "Experiencia",
+    label: "experience",
+    url: "#experience",
   },
   {
     title: "Contacto",
-    label: "contacto",
-    url: "mailto:ferndani2718@gmail.com",
+    label: "contact",
+    url: "#contact",
   },
-  {
-    title: "CV",
-    label: "cv",
-    url: "https://drive.google.com/file/d/1zpLKsT-llOvlMkJbGSawzjoeXDz0qFOf/view?usp=sharing",
-  }
-]
+];
 ---
-<style>
-  nav {
-    animation: nav-shadown 1s linear both;
-    animation-timeline: scroll();
-    animation-range: 0 100px;
-  }
 
-  @keyframes nav-shadown {
-    to {
-      @apply shadow-lg ring-1 backdrop-blur dark:bg-gray-800/90 bg-white/50 ring-white/10;
-    }
-  }
-</style>
-<header class="fixed top-0 z-10 w-full shadow-sm flex justify-center">
+<header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-3 px-4 sm:px-6">
+  <div class="max-w-6xl mx-auto flex items-center justify-between backdrop-blur-xl bg-white/75 dark:bg-neutral-900/80 border border-neutral-200/80 dark:border-neutral-800/80 shadow-lg shadow-black/5 dark:shadow-teal-950/20 rounded-2xl px-4 py-2.5">
+    
+    <!-- Logo / Brand -->
+    <a href="#aboutme" class="flex items-center gap-2.5 group">
+      <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-teal-600 to-cyan-500 flex items-center justify-center text-white font-bold text-sm shadow-md shadow-teal-500/20 group-hover:scale-105 transition-transform">
+        FQ
+      </div>
+      <div class="flex flex-col">
+        <span class="text-sm font-bold text-neutral-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors leading-tight">
+          Fernando Quispe
+        </span>
+        <span class="text-[11px] font-mono text-teal-600 dark:text-teal-400 font-medium leading-tight">
+          Data & AI Engineer
+        </span>
+      </div>
+    </a>
 
-  <nav class="inline-flex px-3 py-1 my-3 text-sm font-extrabold rounded-full bg-gray-200 dark:bg-neutral-900 items-center">
-    {
-      navItems.map((link) => (
+    <!-- Desktop Navigation -->
+    <nav class="hidden md:flex items-center gap-1 text-sm font-medium">
+      {
+        navItems.map((item) => (
           <a
-              class="relative block px-2 py-2 transition hover:text-yellow-500 dark:hover:text-yellow-400"
-              aria-label={link.label}
-              href={link.url} target={link.label === "cv" ? "_blank" : "_self"}
+            class="nav-link px-3 py-1.5 rounded-lg text-neutral-600 dark:text-neutral-300 hover:text-teal-600 dark:hover:text-teal-400 hover:bg-neutral-100 dark:hover:bg-neutral-800/60 transition-all"
+            aria-label={item.label}
+            href={item.url}
           >
-            {link.title}
+            {item.title}
           </a>
+        ))
+      }
+    </nav>
+
+    <!-- Actions: CV + ThemeToggle + Mobile Hamburger -->
+    <div class="flex items-center gap-2">
+      <a
+        href="https://drive.google.com/file/d/1zpLKsT-llOvlMkJbGSawzjoeXDz0qFOf/view?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-gradient-to-r from-teal-500 to-cyan-600 text-white shadow-sm hover:shadow-teal-500/25 hover:opacity-95 transition-all transform hover:-translate-y-0.5"
+      >
+        <span>Descargar CV</span>
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+        </svg>
+      </a>
+
+      <ThemeToggle />
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        type="button"
+        aria-label="Abrir menú móvil"
+        class="md:hidden p-2 rounded-xl text-neutral-600 dark:text-neutral-300 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+      >
+        <svg id="menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div id="mobile-menu" class="hidden md:hidden max-w-6xl mx-auto mt-2 p-4 bg-white/95 dark:bg-neutral-900/95 backdrop-blur-xl border border-neutral-200 dark:border-neutral-800 rounded-2xl shadow-xl space-y-2">
+    {
+      navItems.map((item) => (
+        <a
+          class="mobile-nav-link block px-3 py-2 rounded-xl text-sm font-medium text-neutral-700 dark:text-neutral-200 hover:bg-teal-50 dark:hover:bg-teal-950/50 hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
+          href={item.url}
+        >
+          {item.title}
+        </a>
       ))
     }
-  </nav>
+    <div class="pt-2 border-t border-neutral-100 dark:border-neutral-800 flex justify-center">
+      <a
+        href="https://drive.google.com/file/d/1zpLKsT-llOvlMkJbGSawzjoeXDz0qFOf/view?usp=sharing"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="w-full text-center py-2 rounded-xl text-xs font-semibold bg-gradient-to-r from-teal-500 to-cyan-600 text-white shadow"
+      >
+        Descargar CV
+      </a>
+    </div>
+  </div>
 </header>
 
-<script>
-  document.addEventListener("astro:page-load", () => {
-    const sections = document.querySelectorAll("section")
-    const navItems = document.querySelectorAll("header nav a")
+<script is:inline>
+  function setupHeaderInteractions() {
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const openIcon = document.getElementById('menu-icon-open');
+    const closeIcon = document.getElementById('menu-icon-close');
 
-    const callback = (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          navItems.forEach((item) => {
-            if (item.getAttribute("aria-label") == entry.target.id) {
-              item.classList.add("text-yellow-500")
-            } else {
-              item.classList.remove("text-yellow-500")
-            }
-          })
+    if (mobileBtn && mobileMenu) {
+      mobileBtn.addEventListener('click', () => {
+        const isHidden = mobileMenu.classList.toggle('hidden');
+        if (openIcon && closeIcon) {
+          openIcon.classList.toggle('hidden', !isHidden);
+          closeIcon.classList.toggle('hidden', isHidden);
         }
-      })
+      });
+
+      document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          if (openIcon && closeIcon) {
+            openIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+          }
+        });
+      });
     }
 
-    const observer = new IntersectionObserver(callback, {
-      root: null,
-      rootMargin: "0px",
-      threshold: 0.3,
-    })
+    // Active link highlighting on scroll
+    const sections = document.querySelectorAll('section[id], div[id="aboutme"], div[id="skills"], div[id="projects"]');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-    sections.forEach((section) => {
-      observer.observe(section)
-    })
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const currentId = entry.target.getAttribute('id');
+            navLinks.forEach((link) => {
+              if (link.getAttribute('href') === `#${currentId}`) {
+                link.classList.add('text-teal-600', 'dark:text-teal-400', 'font-semibold', 'bg-teal-50', 'dark:bg-teal-950/40');
+              } else {
+                link.classList.remove('text-teal-600', 'dark:text-teal-400', 'font-semibold', 'bg-teal-50', 'dark:bg-teal-950/40');
+              }
+            });
+          }
+        });
+      },
+      { threshold: 0.25 }
+    );
 
-    // Cleanup function
-    document.onvisibilitychange = () => {
-      if (document.visibilityState === "hidden") {
-        observer.disconnect()
-      } else {
-        sections.forEach((section) => {
-          observer.observe(section)
-        })
-      }
-    }
-  })
+    sections.forEach((sec) => observer.observe(sec));
+  }
+
+  setupHeaderInteractions();
+  document.addEventListener('astro:page-load', setupHeaderInteractions);
 </script>

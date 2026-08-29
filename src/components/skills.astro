@@ -1,81 +1,205 @@
 ---
-const technicalSkills = [
-    "JavaScript", "TypeScript", "React", "Node.js", "GraphQL", "Docker", "Kubernetes"
-];
-
-const softSkills = [
-    "Communication", "Teamwork", "Problem-solving", "Adaptability", "Creativity", "Time management", "Leadership"
+// skills.astro
+const skillCategories = [
+  {
+    id: "data-eng",
+    name: "Data Engineering",
+    icon: "⚡",
+    description: "Diseño de pipelines ETL/ELT, streaming en tiempo real y arquitecturas Lakehouse.",
+    skills: [
+      { name: "Apache Spark / PySpark", level: "Avanzado", tag: "Big Data" },
+      { name: "Apache Kafka", level: "Avanzado", tag: "Streaming" },
+      { name: "Apache Airflow", level: "Intermedio+", tag: "Orquestación" },
+      { name: "dbt (Data Build Tool)", level: "Avanzado", tag: "Transformación" },
+      { name: "PostgreSQL / MySQL / DuckDB", level: "Avanzado", tag: "Bases de Datos" },
+      { name: "Delta Lake / Medallion Arch", level: "Avanzado", tag: "Lakehouse" },
+      { name: "Modelado Dimensional (Star/Snowflake)", level: "Avanzado", tag: "Data Modeling" },
+      { name: "Docker & Contenedores", level: "Avanzado", tag: "Infraestructura" },
+    ]
+  },
+  {
+    id: "data-science",
+    name: "Data Science & ML",
+    icon: "📊",
+    description: "Modelos predictivos, aprendizaje supervisado/no supervisado y análisis estadístico.",
+    skills: [
+      { name: "Python (NumPy, Pandas, SciPy)", level: "Avanzado", tag: "Core Data" },
+      { name: "Scikit-Learn", level: "Avanzado", tag: "Machine Learning" },
+      { name: "XGBoost & LightGBM", level: "Avanzado", tag: "Gradient Boosting" },
+      { name: "PyTorch & Deep Learning", level: "Intermedio+", tag: "Redes Neuronales" },
+      { name: "Series Temporales & Forecasting", level: "Intermedio+", tag: "Estadística" },
+      { name: "SHAP & Explicabilidad de ML", level: "Avanzado", tag: "Interpretability" },
+      { name: "Feature Engineering & Selección", level: "Avanzado", tag: "Data Prep" },
+      { name: "A/B Testing & Inferencia", level: "Intermedio+", tag: "Experimentación" },
+    ]
+  },
+  {
+    id: "gen-ai",
+    name: "GenAI & LLMs",
+    icon: "🤖",
+    description: "Sistemas RAG multimodales, agentes autónomos y bases de datos vectoriales.",
+    skills: [
+      { name: "LangChain & LlamaIndex", level: "Avanzado", tag: "Frameworks LLM" },
+      { name: "Vector DBs (Qdrant, Chroma, PGvector)", level: "Avanzado", tag: "Embeddings" },
+      { name: "RAG & Retrieval Avanzado (Hybrid/Rerank)", level: "Avanzado", tag: "Search" },
+      { name: "OpenAI / Anthropic / HuggingFace APIs", level: "Avanzado", tag: "Modelos" },
+      { name: "Prompt Engineering & Structured Output", level: "Avanzado", tag: "Técnicas" },
+      { name: "Computer Vision (YOLOv8, OpenCV)", level: "Intermedio+", tag: "Visión" },
+    ]
+  },
+  {
+    id: "mlops-cloud",
+    name: "MLOps & Cloud",
+    icon: "🔄",
+    description: "Gobernanza, reproducibilidad, monitoreo y despliegue continuo de modelos y datos.",
+    skills: [
+      { name: "MLflow (Model Registry & Tracking)", level: "Avanzado", tag: "ML Lifecycle" },
+      { name: "Great Expectations (Data Quality)", level: "Avanzado", tag: "Data Testing" },
+      { name: "AWS (S3, Lambda, Glue, EC2)", level: "Intermedio+", tag: "Cloud" },
+      { name: "GitHub Actions CI/CD for Data", level: "Avanzado", tag: "Automatización" },
+      { name: "DVC (Data Version Control)", level: "Intermedio+", tag: "Versionado" },
+      { name: "Linux & Bash Scripting", level: "Avanzado", tag: "Sistemas" },
+    ]
+  },
+  {
+    id: "bi-viz",
+    name: "BI & Visualización",
+    icon: "📈",
+    description: "Creación de tableros de control ejecutivos y aplicaciones interactivas de datos.",
+    skills: [
+      { name: "Streamlit", level: "Avanzado", tag: "Data Apps" },
+      { name: "Power BI & DAX", level: "Intermedio+", tag: "Dashboarding" },
+      { name: "Plotly & Seaborn / Matplotlib", level: "Avanzado", tag: "Visualización" },
+      { name: "Apache Superset", level: "Intermedio", tag: "BI Open Source" },
+    ]
+  },
+  {
+    id: "software-eng",
+    name: "Software & APIs",
+    icon: "💻",
+    description: "Arquitectura de microservicios, APIs de alto rendimiento y clean code.",
+    skills: [
+      { name: "FastAPI & Pydantic", level: "Avanzado", tag: "APIs de Datos" },
+      { name: "Java & Spring Boot", level: "Avanzado", tag: "Backend Enterprise" },
+      { name: "C# & .NET Core", level: "Avanzado", tag: "Backend" },
+      { name: "TypeScript & React / Vue", level: "Intermedio+", tag: "Frontend" },
+      { name: "Clean Architecture & DDD", level: "Avanzado", tag: "Arquitectura" },
+    ]
+  }
 ];
 ---
-<div id="skills" class="skills-section mt-12 mx-4 md:mx-32  p-8 rounded-3xl bg-neutral-900 flex flex-col items-center">
-    <div  class="w-full max-w-4xl mx-auto  ">
-        <h2 class="text-3xl font-bold text-gray-800 dark:text-white mb-4 text-center">Habilidades</h2>
-        <!-- Toggle buttons -->
-        <div class="flex mb-4 justify-center">
-            <label class="mr-0 cursor-pointer">
-                <input type="radio" name="skillType" value="technical" class="hidden" id="technical" />
-                <span class="px-4 py-2 border rounded-l" id="technicalLabel">Técnicas</span>
-            </label>
 
-            <label class="cursor-pointer">
-                <input type="radio" name="skillType" value="soft" class="hidden" id="soft" />
-                <span class="px-4 py-2 border rounded-r" id="softLabel">Blandas</span>
-            </label>
-        </div>
-        <!-- Skills List -->
-        <div class="skills-list w-full flex justify-center">
-            <ul id="skillsList" class="w-full max-w-2xl">
-                {technicalSkills.map((skill) => (
-                        <li class="text-xl dark:text-white text-white py-1 text-center">{skill}</li>
-                ))}
-            </ul>
-        </div>
+<section id="skills" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+  <div class="text-center max-w-3xl mx-auto mb-12">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 text-xs font-semibold uppercase tracking-wider mb-3">
+      Stack Tecnológico
     </div>
-</div>
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 dark:text-white tracking-tight">
+      Habilidades & Especialización Técnica
+    </h2>
+    <p class="mt-3 text-base text-neutral-600 dark:text-neutral-300">
+      Herramientas, frameworks y metodologías para diseñar soluciones de datos robustas, mantenibles y de alto rendimiento.
+    </p>
+  </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const technicalSkills = [
-            "JavaScript", "TypeScript", "React", "Node.js", "GraphQL", "Docker", "Kubernetes"
-        ];
+  <!-- Skill Category Tabs -->
+  <div class="flex flex-wrap justify-center gap-2 mb-8" id="skills-tabs">
+    {skillCategories.map((cat, index) => (
+      <button
+        type="button"
+        data-category={cat.id}
+        class={`skill-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
+          index === 0
+            ? "bg-teal-600 text-white shadow-md shadow-teal-600/20 active"
+            : "bg-white/80 dark:bg-neutral-900/80 text-neutral-700 dark:text-neutral-300 border border-neutral-200/80 dark:border-neutral-800/80 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+        }`}
+      >
+        <span>{cat.icon}</span>
+        <span>{cat.name}</span>
+      </button>
+    ))}
+  </div>
 
-        const softSkills = [
-            "Communication", "Teamwork", "Problem-solving", "Adaptability", "Creativity", "Time management", "Leadership"
-        ];
+  <!-- Category Content Panels -->
+  <div id="skills-panels" class="relative">
+    {skillCategories.map((cat, index) => (
+      <div
+        id={`panel-${cat.id}`}
+        class={`skill-panel ${index === 0 ? "block" : "hidden"} transition-opacity duration-300`}
+      >
+        <div class="p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-neutral-900/70 backdrop-blur-md border border-neutral-200/80 dark:border-neutral-800/80 shadow-sm">
+          
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-6 mb-6 border-b border-neutral-100 dark:border-neutral-800">
+            <div>
+              <h3 class="text-xl font-bold text-neutral-900 dark:text-white flex items-center gap-2">
+                <span>{cat.icon}</span>
+                <span>{cat.name}</span>
+              </h3>
+              <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-1">
+                {cat.description}
+              </p>
+            </div>
+            <span class="text-xs font-mono text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/60 px-3 py-1 rounded-lg self-start sm:self-auto">
+              {cat.skills.length} Tecnologías Dominadas
+            </span>
+          </div>
 
-        const technicalRadio = document.getElementById('technical');
-        const softRadio = document.getElementById('soft');
-        const skillsList = document.getElementById('skillsList');
-        const technicalLabel = document.getElementById('technicalLabel');
-        const softLabel = document.getElementById('softLabel');
+          <!-- Skills Grid -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {cat.skills.map((skill) => (
+              <div class="p-4 rounded-2xl bg-neutral-50/80 dark:bg-neutral-800/50 border border-neutral-200/60 dark:border-neutral-700/60 hover:border-teal-500/40 dark:hover:border-teal-500/40 transition-all duration-200 flex flex-col justify-between group">
+                <div class="flex items-start justify-between gap-2 mb-2">
+                  <span class="text-sm font-semibold text-neutral-900 dark:text-neutral-100 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+                    {skill.name}
+                  </span>
+                </div>
+                <div class="flex items-center justify-between pt-2 mt-auto border-t border-neutral-200/40 dark:border-neutral-700/40 text-[11px] font-mono">
+                  <span class="text-neutral-500 dark:text-neutral-400">{skill.tag}</span>
+                  <span class="text-teal-600 dark:text-teal-400 font-semibold">{skill.level}</span>
+                </div>
+              </div>
+            ))}
+          </div>
 
-        function updateSkills(isTechnical) {
-            skillsList.innerHTML = '';
-            const skills = isTechnical ? technicalSkills : softSkills;
-            skills.forEach(skill => {
-                const li = document.createElement('li');
-                li.className = 'text-xl text-white py-1';
-                li.textContent = skill;
-                skillsList.appendChild(li);
-            });
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
 
-            if (isTechnical) {
-                technicalLabel.classList.add('bg-neutral-900', 'text-white');
-                technicalLabel.classList.remove('bg-gray-200', 'text-gray-700');
-                softLabel.classList.add('bg-gray-200', 'text-gray-700');
-                softLabel.classList.remove('bg-neutral-900', 'text-white');
-            } else {
-                softLabel.classList.add('bg-neutral-900', 'text-white');
-                softLabel.classList.remove('bg-gray-200', 'text-gray-700');
-                technicalLabel.classList.add('bg-gray-200', 'text-gray-700');
-                technicalLabel.classList.remove('bg-neutral-900', 'text-white');
-            }
-        }
+<script is:inline>
+  function setupSkillsTabs() {
+    const tabs = document.querySelectorAll('.skill-tab-btn');
+    const panels = document.querySelectorAll('.skill-panel');
 
-        technicalRadio.addEventListener('change', () => updateSkills(true));
-        softRadio.addEventListener('change', () => updateSkills(false));
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const targetCategory = tab.getAttribute('data-category');
 
-        // Initialize with technical skills
-        updateSkills(true);
+        // Reset all tabs
+        tabs.forEach(t => {
+          t.classList.remove('bg-teal-600', 'text-white', 'shadow-md', 'shadow-teal-600/20', 'active');
+          t.classList.add('bg-white/80', 'dark:bg-neutral-900/80', 'text-neutral-700', 'dark:text-neutral-300', 'border', 'border-neutral-200/80', 'dark:border-neutral-800/80');
+        });
+
+        // Activate clicked tab
+        tab.classList.remove('bg-white/80', 'dark:bg-neutral-900/80', 'text-neutral-700', 'dark:text-neutral-300', 'border');
+        tab.classList.add('bg-teal-600', 'text-white', 'shadow-md', 'shadow-teal-600/20', 'active');
+
+        // Hide all panels, show active panel
+        panels.forEach(panel => {
+          if (panel.id === `panel-${targetCategory}`) {
+            panel.classList.remove('hidden');
+            panel.classList.add('block');
+          } else {
+            panel.classList.remove('block');
+            panel.classList.add('hidden');
+          }
+        });
+      });
     });
+  }
+
+  setupSkillsTabs();
+  document.addEventListener('astro:page-load', setupSkillsTabs);
 </script>

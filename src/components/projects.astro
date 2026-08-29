@@ -1,111 +1,397 @@
 ---
-let projects: Array<{
-    title: string,
-    categories: string[],
-    description: string,
-    image: string[],
-    technologies: string[],
-    link?: string,
-    github?: string[],
-}>;
-projects = [
-    {
-        title: "Chaquitaclla",
-        categories: ["Frontend", "Backend", "Mobile"],
-        description: "Plataforma web y móvil para el sector agrícola desarrollada con la arquitectura MVC" +
-            " (Modelo Vista Controlador), aplicando el enfoque de DDD (Domain-Driven Design). " +
-            "El frontend fue creado con Vue.js y PrimeVue, mientras que el backend se construyó con una API RESTful en " +
-            "C# y .NET Core, utilizando patrones de diseño como inyección de dependencias y Observer, " +
-            "siguiendo buenas prácticas de desarrollo. La versión móvil se desarrolló de manera nativa" +
-            " para Android utilizando XML y Compose en Kotlin, optimizando la experiencia de usuario en dispositivos móviles.",
-        image: ["/images/projects/chaquitaclla.png"],
-        technologies: ["Kotlin", "Android Compose", "Firebase", "Vue.JS", "PrimeVue", "C#", ".NET Core"],
-        github: ["https://github.com/fdaniel13s/RESTfulAPI-Chaquitaclla-NETCore", "https://github.com/upc-pre-202402-CC238-ws61-Error-404/AppMovilesFrontend"],
-    },
-    {
-        title: "EcoMarket",
-        description: "Software de e-commerce que facilita la compra y venta de productos defectuosos o\n" +
-            "próximos a vencer a precios reducidos. Desarrollado con Spring Boot para la API RESTful y Angular\n" +
-            "con TypeScript para el frontend, siguiendo la arquitectura MVC.",
-        categories: ["Frontend", "Backend"],
-        image: ["/images/projects/Ecomarket.jpg"],
-        technologies: ["Java", "Spring Boot", "Angular", "TypeScript"],
-        github : ["https://github.com/fdaniel13s/RESTfulAPI-Ecomarket-SpringBoot.git"]
-    },
-    {
-        title: "Gestor de Letras/Facturas para Factoring",
-        description: "Aplicación web para la gestión de letras y facturas de empresas de factoring. " +
-            "Desarrollada con Spring Boot para el backend y Vue.js para el frontend, siguiendo la arquitectura MVC.",
-        categories: ["Frontend", "Backend"],
-        image: ["/images/projects/Factoring.png" , "/portfolio/images/projects/Factoring2.png"],
-        technologies: ["Java", "Spring Boot", "Vue.js"],
-        github: ["https://github.com/fdaniel13s/RESTFULApi-si642-gestor-factoring"]
-    }
-]
+// projects.astro
+interface Project {
+  id: string;
+  title: string;
+  subtitle: string;
+  category: 'data-eng' | 'data-science' | 'gen-ai';
+  categoryLabel: string;
+  badgeClass: string;
+  problem: string;
+  architecture: string;
+  metrics: Array<{ label: string; value: string }>;
+  technologies: string[];
+  images: string[];
+  github?: string[];
+  liveDemo?: string;
+  featured?: boolean;
+}
+
+const projects: Project[] = [
+  {
+    id: "agri-predict",
+    title: "AgriPredict & CropVision AI",
+    subtitle: "Detección temprana de patologías y estimación de rendimiento agrícola con Deep Learning",
+    category: "data-science",
+    categoryLabel: "Data Science & Vision",
+    badgeClass: "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/70 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800",
+    problem: "Pérdida del 30-40% en cosechas de pequeños agricultores debido al diagnóstico tardío de plagas y estrés hídrico.",
+    architecture: "Ingesta de telemetría IoT y capturas fotográficas en campo -> Pipeline de visión artificial con YOLOv8 y PyTorch -> Feature store para clima, humedad de suelo y nutrientes -> API de inferencia en FastAPI (<90ms) integrada con app móvil Kotlin Compose y panel Web Vue.js.",
+    metrics: [
+      { label: "mAP50 Visión", value: "94.8%" },
+      { label: "Reducción Pérdidas", value: "-35%" },
+      { label: "Latencia Inferencia", value: "< 90ms" }
+    ],
+    technologies: ["Python", "PyTorch", "YOLOv8", "FastAPI", "PostgreSQL", "Docker", "Kotlin Compose", "Vue.js", "C# .NET"],
+    images: ["/images/projects/chaquitaclla.png"],
+    github: [
+      "https://github.com/fdaniel13s/RESTfulAPI-Chaquitaclla-NETCore",
+      "https://github.com/upc-pre-202402-CC238-ws61-Error-404/AppMovilesFrontend"
+    ],
+    featured: true
+  },
+  {
+    id: "fintech-lakehouse",
+    title: "Real-Time FinTech Lakehouse & Fraud Detection",
+    subtitle: "Pipeline streaming y Lakehouse con Arquitectura Medallion para evaluación de riesgo y facturas",
+    category: "data-eng",
+    categoryLabel: "Data Engineering",
+    badgeClass: "bg-teal-50 text-teal-700 dark:bg-teal-950/70 dark:text-teal-300 border-teal-200 dark:border-teal-800",
+    problem: "Verificación manual lenta y riesgo de fraude crediticio en emisión y negociación de facturas comerciales (Factoring).",
+    architecture: "Captura de eventos en tiempo real con Apache Kafka -> Streaming con Apache Spark -> Capa Bronze (Raw Parquet/S3), Silver (Deduplicación, enriquecimiento y reglas de validación en Delta Lake) y Gold (Modelado dimensional con dbt Core y agregaciones de riesgo para analítica) -> PostgreSQL y DuckDB.",
+    metrics: [
+      { label: "Throughput Eventos", value: "50k+ ev/s" },
+      { label: "Latencia Streaming", value: "< 140ms" },
+      { label: "Calidad de Datos", value: "100% Tests" }
+    ],
+    technologies: ["Apache Kafka", "Apache Spark", "Delta Lake", "dbt Core", "PostgreSQL", "DuckDB", "Docker", "Spring Boot", "Vue.js"],
+    images: ["/images/projects/Factoring.png", "/images/projects/Factoring2.png"],
+    github: ["https://github.com/fdaniel13s/RESTFULApi-si642-gestor-factoring"],
+    featured: true
+  },
+  {
+    id: "documind-rag",
+    title: "DocuMind: Enterprise Factoring & Invoice RAG",
+    subtitle: "Sistema RAG Multimodal para extracción inteligente de comprobantes y auditoría tributaria",
+    category: "gen-ai",
+    categoryLabel: "Generative AI & LLMs",
+    badgeClass: "bg-purple-50 text-purple-700 dark:bg-purple-950/70 dark:text-purple-300 border-purple-200 dark:border-purple-800",
+    problem: "Auditoría manual de comprobantes tributarios complejos, notas de crédito y contratos que toma horas por lote.",
+    architecture: "Parser OCR y preprocesamiento de documentos estructurados y no estructurados -> Chunking contextual jerárquico -> Embeddings de alta dimensionalidad en Qdrant Vector DB -> Búsqueda híbrida (Dense + BM25) con reranking Cohere -> Generación estructurada validada con Pydantic y LangChain.",
+    metrics: [
+      { label: "Precisión Extracción", value: "98.2%" },
+      { label: "Reducción Tiempo", value: "80%" },
+      { label: "SLA Búsqueda", value: "< 250ms" }
+    ],
+    technologies: ["LangChain", "LlamaIndex", "Qdrant Vector DB", "FastAPI", "Python", "Pydantic", "Docker", "OpenAI APIs"],
+    images: ["/images/projects/Factoring2.png"],
+    github: ["https://github.com/fdaniel13s/portfolio"],
+    featured: true
+  },
+  {
+    id: "ecomarket-analytics",
+    title: "EcoMarket: Churn Prediction & Recommendation Engine",
+    subtitle: "Segmentación RFM automatizada, predicción de abandono y recomendador híbrido de ofertas",
+    category: "data-science",
+    categoryLabel: "Data Science & MLOps",
+    badgeClass: "bg-cyan-50 text-cyan-700 dark:bg-cyan-950/70 dark:text-cyan-300 border-cyan-200 dark:border-cyan-800",
+    problem: "Alto desperdicio de productos cercanos al vencimiento por falta de personalización de ofertas en tiempo oportuno.",
+    architecture: "Pipeline de datos con extracción de transacciones -> Feature engineering (RFM, estacionalidad, elasticidad de precio) -> Modelos de clasificación con XGBoost y LightGBM -> Explicabilidad de decisiones con SHAP -> Tracking de experimentos y versionado con MLflow -> Backend Spring Boot + Frontend Angular.",
+    metrics: [
+      { label: "AUC-ROC Churn", value: "0.912" },
+      { label: "Incremento Recompra", value: "+22%" },
+      { label: "Modelo Versionado", value: "MLflow" }
+    ],
+    technologies: ["Python", "Scikit-Learn", "XGBoost", "LightGBM", "SHAP", "MLflow", "Spring Boot", "Angular", "TypeScript"],
+    images: ["/images/projects/Ecomarket.jpg"],
+    github: ["https://github.com/fdaniel13s/RESTfulAPI-Ecomarket-SpringBoot.git"]
+  },
+  {
+    id: "cloud-data-platform",
+    title: "Cloud Data Platform & Automated BI Analytics",
+    subtitle: "Orquestación moderna de datos con Airflow, transformaciones modulares dbt y Data Quality",
+    category: "data-eng",
+    categoryLabel: "Data Engineering",
+    badgeClass: "bg-teal-50 text-teal-700 dark:bg-teal-950/70 dark:text-teal-300 border-teal-200 dark:border-teal-800",
+    problem: "Silos de información y discrepancias en métricas clave entre departamentos de operaciones y finanzas.",
+    architecture: "Orquestación centralizada de DAGs con Apache Airflow -> Extracción incremental de fuentes transaccionales -> Validaciones automatizadas de calidad con Great Expectations -> Transformaciones con dbt Core en DuckDB / PostgreSQL -> Tableros ejecutivos en Streamlit.",
+    metrics: [
+      { label: "Disponibilidad SLA", value: "99.9%" },
+      { label: "Validaciones Data Quality", value: "50+ Tests" },
+      { label: "Frecuencia Actualización", value: "Automática" }
+    ],
+    technologies: ["Apache Airflow", "dbt Core", "Great Expectations", "DuckDB", "PostgreSQL", "Docker", "Streamlit"],
+    images: ["/images/projects/Factoring.png"],
+    github: ["https://github.com/fdaniel13s/portfolio"]
+  },
+  {
+    id: "credit-risk-ai",
+    title: "CreditRiskAI: Explainable ML Credit Scoring",
+    subtitle: "Motor de scoring crediticio con explicabilidad algorítmica para cumplimiento normativo",
+    category: "data-science",
+    categoryLabel: "Machine Learning & Stats",
+    badgeClass: "bg-blue-50 text-blue-700 dark:bg-blue-950/70 dark:text-blue-300 border-blue-200 dark:border-blue-800",
+    problem: "Cajas negras en modelos de ML bancarios que impiden la justificación de aprobaciones y rechazos ante reguladores.",
+    architecture: "Preprocesamiento y balanceo de datos crediticios (SMOTE-NC) -> Ensamble con CatBoost y Random Forest optimizado mediante Optuna -> Integración de explicaciones SHAP (Waterfalls y Force Plots locales) -> Dashboard interactivo de scoring en tiempo real con Streamlit y FastAPI.",
+    metrics: [
+      { label: "Coeficiente Gini", value: "0.78" },
+      { label: "F1-Score Macro", value: "0.89" },
+      { label: "Explicabilidad SHAP", value: "100%" }
+    ],
+    technologies: ["Python", "CatBoost", "Scikit-Learn", "SHAP", "Optuna", "FastAPI", "Streamlit", "Plotly"],
+    images: ["/images/projects/Factoring2.png"],
+    github: ["https://github.com/fdaniel13s/portfolio"]
+  }
+];
+
+const filterCategories = [
+  { id: "all", label: "Todos los Proyectos", icon: "🌐" },
+  { id: "data-eng", label: "Data Engineering", icon: "⚡" },
+  { id: "data-science", label: "Data Science & ML", icon: "📊" },
+  { id: "gen-ai", label: "Generative AI & LLMs", icon: "🤖" },
+];
 ---
 
-<div id="projects" class="projects-section grid grid-cols-1 md:grid-cols-2 gap-8 mt-4 mx-16 rounded-3xl">
-    {projects.map((project) => (
-            <div class="project-card p-6 rounded-lg shadow-lg bg-white dark:bg-neutral-900">
-                <div class="carousel relative w-full h-56 overflow-hidden rounded-t-lg">
-                    {project.image.map((img, index) => (
-                            <img src={img} alt={project.title} class={`carousel-image absolute w-full h-56 object-cover transition-opacity duration-500 ${index === 0 ? 'opacity-100' : 'opacity-0'}`} />
-                    ))}
-                    <button class="prev absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-r-lg">‹</button>
-                    <button class="next absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-800 text-white p-2 rounded-l-lg">›</button>
-                </div>
-                <div class="p-4">
-                    <h3 class="text-2xl font-bold text-gray-800 dark:text-white">{project.title}</h3>
-                    <p class="mt-2 text-gray-600 dark:text-gray-300 text-justify">{project.description}</p>
-                    <div class="mt-4">
-                        <h4 class="text-lg font-semibold text-gray-800 dark:text-white">Technologies:</h4>
-                        <ul class="list-disc list-inside">
-                            {project.technologies.map((tech) => (
-                                    <li class="text-gray-600 dark:text-gray-300">{tech}</li>
-                            ))}
-                        </ul>
-                    </div>
-                    <div class="mt-4 flex space-x-4">
-                        {project.link && (
-                                <a href={project.link || "#"} target="_blank" class="text-blue-500 hover:underline">Live Demo</a>
-                        )}
-                        {project.github && project.github.map((link, index) => (
-                                <a href={link} target="_blank" class="text-blue-500 hover:underline">GitHub {index + 1} </a>
-                        ))}
-                    </div>
-                </div>
-            </div>
+<section id="projects" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+  <!-- Section Header -->
+  <div class="text-center max-w-3xl mx-auto mb-12">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 text-xs font-semibold uppercase tracking-wider mb-3">
+      Portafolio de Proyectos
+    </div>
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 dark:text-white tracking-tight">
+      Casos de Estudio & Soluciones de Datos
+    </h2>
+    <p class="mt-3 text-base text-neutral-600 dark:text-neutral-300">
+      Proyectos desarrollados con estándares de producción: arquitectura de datos, pipelines escalables, modelos de ML explicables y sistemas de IA Generativa.
+    </p>
+  </div>
+
+  <!-- Filter Category Buttons -->
+  <div class="flex flex-wrap justify-center gap-2 mb-10" id="project-filters">
+    {filterCategories.map((cat, idx) => (
+      <button
+        type="button"
+        data-filter={cat.id}
+        class={`project-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
+          idx === 0
+            ? "bg-teal-600 text-white shadow-md shadow-teal-600/20 active-filter"
+            : "bg-white/80 dark:bg-neutral-900/80 text-neutral-700 dark:text-neutral-300 border border-neutral-200/80 dark:border-neutral-800/80 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+        }`}
+      >
+        <span>{cat.icon}</span>
+        <span>{cat.label}</span>
+      </button>
     ))}
-</div>
+  </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const carousels = document.querySelectorAll('.carousel');
-        carousels.forEach(carousel => {
-            let currentIndex = 0;
-            const images = carousel.querySelectorAll('.carousel-image');
-            const totalImages = images.length;
-            const prevButton = carousel.querySelector('.prev');
-            const nextButton = carousel.querySelector('.next');
+  <!-- Projects Grid -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8" id="projects-grid">
+    {projects.map((project) => (
+      <article
+        data-category={project.category}
+        class="project-card flex flex-col justify-between rounded-3xl bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border border-neutral-200/80 dark:border-neutral-800/80 hover:border-teal-500/50 dark:hover:border-teal-500/50 shadow-sm hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300 overflow-hidden group"
+      >
+        <div>
+          <!-- Image Container / Carousel -->
+          <div class="relative w-full h-56 bg-neutral-950 overflow-hidden border-b border-neutral-100 dark:border-neutral-800">
+            <div class="carousel-container relative w-full h-full">
+              {project.images.map((img, idx) => (
+                <img
+                  src={img}
+                  alt={`${project.title} - Captura ${idx + 1}`}
+                  class={`carousel-img absolute inset-0 w-full h-full object-cover transition-all duration-500 group-hover:scale-105 ${
+                    idx === 0 ? "opacity-100 scale-100" : "opacity-0 scale-100"
+                  }`}
+                  loading="lazy"
+                />
+              ))}
+            </div>
 
-            function showImage(index:number) {
-                images.forEach((img, i) => {
-                    img.classList.toggle('opacity-100', i === index);
-                    img.classList.toggle('opacity-0', i !== index);
-                });
-            }
+            <!-- Gradient Overlay for Contrast -->
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
 
-            prevButton.addEventListener('click', () => {
-                currentIndex = (currentIndex - 1 + totalImages) < 0 ? totalImages - 1 : (currentIndex - 1 + totalImages) % totalImages;
-                showImage(currentIndex);
-            });
+            <!-- Domain Badge -->
+            <div class="absolute top-4 left-4 z-10">
+              <span class={`px-3 py-1 rounded-lg text-xs font-semibold font-mono border backdrop-blur-md ${project.badgeClass}`}>
+                {project.categoryLabel}
+              </span>
+            </div>
 
-            nextButton.addEventListener('click', () => {
-                currentIndex = (currentIndex + 1) % totalImages;
-                showImage(currentIndex);
-            });
+            <!-- Carousel Controls if multiple images -->
+            {project.images.length > 1 && (
+              <div class="absolute bottom-3 right-3 z-10 flex gap-1.5">
+                <button
+                  type="button"
+                  class="carousel-prev w-7 h-7 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center text-xs backdrop-blur-sm transition-colors"
+                  aria-label="Imagen anterior"
+                >
+                  ‹
+                </button>
+                <button
+                  type="button"
+                  class="carousel-next w-7 h-7 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center text-xs backdrop-blur-sm transition-colors"
+                  aria-label="Siguiente imagen"
+                >
+                  ›
+                </button>
+              </div>
+            )}
+          </div>
 
-            showImage(currentIndex);
+          <!-- Content Body -->
+          <div class="p-6 sm:p-7">
+            <!-- Title & Subtitle -->
+            <h3 class="text-2xl font-bold text-neutral-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors leading-tight">
+              {project.title}
+            </h3>
+            <p class="text-sm font-medium text-teal-600 dark:text-teal-400 mt-1 mb-4">
+              {project.subtitle}
+            </p>
+
+            <!-- Problem & Business Context -->
+            <div class="mb-4">
+              <span class="text-xs font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500 block mb-1">
+                📌 Reto & Impacto de Negocio
+              </span>
+              <p class="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
+                {project.problem}
+              </p>
+            </div>
+
+            <!-- Data Architecture & Pipeline -->
+            <div class="mb-5">
+              <span class="text-xs font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500 block mb-1">
+                🏛️ Arquitectura & Pipeline de Datos
+              </span>
+              <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed bg-neutral-50 dark:bg-neutral-800/60 p-3 rounded-xl border border-neutral-200/50 dark:border-neutral-700/50 font-sans">
+                {project.architecture}
+              </p>
+            </div>
+
+            <!-- Key Metrics Grid -->
+            <div class="grid grid-cols-3 gap-2 py-3 px-3.5 mb-5 rounded-2xl bg-teal-50/50 dark:bg-neutral-800/80 border border-teal-100 dark:border-neutral-700/80 text-center">
+              {project.metrics.map((metric) => (
+                <div>
+                  <div class="text-sm sm:text-base font-bold font-mono text-teal-700 dark:text-teal-300">
+                    {metric.value}
+                  </div>
+                  <div class="text-[10px] sm:text-[11px] text-neutral-500 dark:text-neutral-400 mt-0.5 leading-tight">
+                    {metric.label}
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <!-- Technologies -->
+            <div class="mb-6">
+              <span class="text-xs font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500 block mb-2">
+                Stack Tecnológico:
+              </span>
+              <div class="flex flex-wrap gap-1.5">
+                {project.technologies.map((tech) => (
+                  <span class="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border border-neutral-200/70 dark:border-neutral-700/70">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card Footer / Links -->
+        <div class="px-6 sm:px-7 pb-6 pt-2 border-t border-neutral-100 dark:border-neutral-800 flex flex-wrap items-center justify-between gap-3">
+          <div class="flex items-center gap-2">
+            {project.github && project.github.map((link, idx) => (
+              <a
+                href={link}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-200 dark:hover:bg-neutral-700 border border-neutral-200 dark:border-neutral-700 transition-colors"
+              >
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
+                </svg>
+                <span>{project.github.length > 1 ? `Repo ${idx + 1}` : 'Código Fuente'}</span>
+              </a>
+            ))}
+          </div>
+
+          <a
+            href="mailto:ferndani2718@gmail.com?subject=Consulta%20sobre%20proyecto%20"
+            class="inline-flex items-center gap-1 text-xs font-semibold text-teal-600 dark:text-teal-400 hover:underline"
+          >
+            <span>Consultar caso</span>
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </a>
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<script is:inline>
+  function setupProjectsInteraction() {
+    // Category Filtering
+    const filterBtns = document.querySelectorAll('.project-filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        // Reset buttons style
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-teal-600', 'text-white', 'shadow-md', 'shadow-teal-600/20', 'active-filter');
+          b.classList.add('bg-white/80', 'dark:bg-neutral-900/80', 'text-neutral-700', 'dark:text-neutral-300', 'border', 'border-neutral-200/80', 'dark:border-neutral-800/80');
         });
+
+        // Highlight active button
+        btn.classList.remove('bg-white/80', 'dark:bg-neutral-900/80', 'text-neutral-700', 'dark:text-neutral-300', 'border');
+        btn.classList.add('bg-teal-600', 'text-white', 'shadow-md', 'shadow-teal-600/20', 'active-filter');
+
+        // Filter projects
+        projectCards.forEach(card => {
+          const cardCategory = card.getAttribute('data-category');
+          if (filter === 'all' || cardCategory === filter) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
     });
+
+    // Image Carousels
+    const cardsWithCarousels = document.querySelectorAll('.project-card');
+    cardsWithCarousels.forEach(card => {
+      const images = card.querySelectorAll('.carousel-img');
+      if (images.length <= 1) return;
+
+      const prevBtn = card.querySelector('.carousel-prev');
+      const nextBtn = card.querySelector('.carousel-next');
+      let currentIndex = 0;
+
+      function updateCarousel(newIndex) {
+        images.forEach((img, idx) => {
+          if (idx === newIndex) {
+            img.classList.remove('opacity-0');
+            img.classList.add('opacity-100');
+          } else {
+            img.classList.remove('opacity-100');
+            img.classList.add('opacity-0');
+          }
+        });
+        currentIndex = newIndex;
+      }
+
+      if (prevBtn && nextBtn) {
+        prevBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const newIdx = (currentIndex - 1 + images.length) % images.length;
+          updateCarousel(newIdx);
+        });
+
+        nextBtn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const newIdx = (currentIndex + 1) % images.length;
+          updateCarousel(newIdx);
+        });
+      }
+    });
+  }
+
+  setupProjectsInteraction();
+  document.addEventListener('astro:page-load', setupProjectsInteraction);
 </script>

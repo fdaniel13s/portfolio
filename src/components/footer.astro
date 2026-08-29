@@ -1,0 +1,41 @@
+---
+// footer.astro
+---
+
+<footer class="mt-20 border-t border-neutral-200/80 dark:border-neutral-800/80 bg-white/50 dark:bg-neutral-950/50 backdrop-blur-md py-12 px-4 sm:px-6 lg:px-8">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+    
+    <div>
+      <div class="flex items-center justify-center md:justify-start gap-2">
+        <div class="w-6 h-6 rounded-md bg-gradient-to-tr from-teal-600 to-cyan-500 flex items-center justify-center text-white font-bold text-xs">
+          FQ
+        </div>
+        <span class="font-bold text-neutral-900 dark:text-white">
+          Fernando Daniel Quispe Condori
+        </span>
+      </div>
+      <p class="text-xs text-neutral-500 dark:text-neutral-400 mt-1">
+        Ingeniero de Software especializado en Data Science, Data Engineering & Artificial Intelligence.
+      </p>
+    </div>
+
+    <!-- Quick Navigation Links -->
+    <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-medium text-neutral-600 dark:text-neutral-300">
+      <a href="#aboutme" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">Sobre Mí</a>
+      <a href="#architecture" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">Arquitectura</a>
+      <a href="#skills" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">Habilidades</a>
+      <a href="#projects" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">Proyectos</a>
+      <a href="#experience" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">Experiencia</a>
+      <a href="#contact" class="hover:text-teal-600 dark:hover:text-teal-400 transition-colors">Contacto</a>
+    </div>
+
+    <!-- Copyright & Stack -->
+    <div class="text-xs text-neutral-500 dark:text-neutral-400">
+      <p>© {new Date().getFullYear()} Fernando Quispe. All rights reserved.</p>
+      <p class="mt-0.5 text-[11px] font-mono text-neutral-400 dark:text-neutral-500">
+        Diseñado con Astro + Tailwind CSS
+      </p>
+    </div>
+
+  </div>
+</footer>

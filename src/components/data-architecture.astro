@@ -1,0 +1,127 @@
+---
+// data-architecture.astro
+const stages = [
+  {
+    step: "01",
+    title: "Ingesta Batch & Streaming",
+    icon: "⚡",
+    desc: "Captura de eventos en tiempo real y micro-batches de múltiples fuentes (APIs, DBs, IoT, archivos).",
+    techs: ["Apache Kafka", "AWS S3", "FastAPI", "CDC"],
+    color: "from-teal-500 to-emerald-500",
+    badge: "Ingestion Layer"
+  },
+  {
+    step: "02",
+    title: "Lakehouse & Medallion",
+    icon: "🏛️",
+    desc: "Almacenamiento estructurado en capas Bronze (Raw), Silver (Clean/Enriched) y Gold (Business-Ready).",
+    techs: ["Delta Lake", "DuckDB", "PostgreSQL", "Parquet"],
+    color: "from-emerald-500 to-cyan-500",
+    badge: "Storage Layer"
+  },
+  {
+    step: "03",
+    title: "Transformación & Data Quality",
+    icon: "⚙️",
+    desc: "Orquestación de pipelines con validación automatizada de esquemas, linaje y pruebas unitarias de datos.",
+    techs: ["Apache Spark", "dbt Core", "Apache Airflow", "Great Expectations"],
+    color: "from-cyan-500 to-blue-500",
+    badge: "Processing Layer"
+  },
+  {
+    step: "04",
+    title: "ML, GenAI & MLOps",
+    icon: "🧠",
+    desc: "Entrenamiento de modelos predictivos, pipelines RAG con bases vectoriales y registro de modelos en MLflow.",
+    techs: ["PyTorch / Scikit-Learn", "LangChain / Qdrant", "MLflow", "SHAP"],
+    color: "from-blue-500 to-indigo-500",
+    badge: "Intelligence Layer"
+  },
+  {
+    step: "05",
+    title: "Servicio & Toma de Decisiones",
+    icon: "📊",
+    desc: "Despliegue de endpoints de baja latencia (<150ms), microservicios contenerizados y dashboards analíticos.",
+    techs: ["FastAPI", "Docker", "Streamlit", "Power BI"],
+    color: "from-indigo-500 to-purple-500",
+    badge: "Serving Layer"
+  }
+];
+---
+
+<section id="architecture" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+  <div class="text-center max-w-3xl mx-auto mb-12">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 text-xs font-semibold uppercase tracking-wider mb-3">
+      Arquitectura End-to-End
+    </div>
+    <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 dark:text-white tracking-tight">
+      Flujo de Datos y Ciclo de Vida de IA
+    </h2>
+    <p class="mt-3 text-base text-neutral-600 dark:text-neutral-300">
+      Cómo estructuro soluciones de datos resilientes desde la captura hasta el impacto en negocio, combinando ingeniería de datos, modelos de ML y GenAI.
+    </p>
+  </div>
+
+  <!-- Interactive / Grid Flow -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
+    {stages.map((stage, idx) => (
+      <div class="group relative p-6 rounded-2xl bg-white/70 dark:bg-neutral-900/70 backdrop-blur-md border border-neutral-200/80 dark:border-neutral-800/80 hover:border-teal-500/50 dark:hover:border-teal-500/50 shadow-sm hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300 flex flex-col justify-between">
+        
+        <div>
+          <!-- Header Card -->
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-neutral-100 dark:bg-neutral-800 text-neutral-600 dark:text-neutral-400 border border-neutral-200 dark:border-neutral-700">
+              {stage.badge}
+            </span>
+            <span class={`text-lg font-extrabold font-mono text-transparent bg-clip-text bg-gradient-to-r ${stage.color}`}>
+              {stage.step}
+            </span>
+          </div>
+
+          <!-- Icon & Title -->
+          <div class="flex items-center gap-3 mb-3">
+            <span class="text-2xl">{stage.icon}</span>
+            <h3 class="text-lg font-bold text-neutral-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+              {stage.title}
+            </h3>
+          </div>
+
+          <!-- Description -->
+          <p class="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed mb-5">
+            {stage.desc}
+          </p>
+        </div>
+
+        <!-- Tech Badges -->
+        <div class="pt-4 border-t border-neutral-100 dark:border-neutral-800/80 flex flex-wrap gap-1.5">
+          {stage.techs.map((tech) => (
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded-md bg-neutral-100 dark:bg-neutral-800/80 text-neutral-700 dark:text-neutral-300 border border-neutral-200/60 dark:border-neutral-700/60">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+    ))}
+
+    <!-- High-Impact Value Box -->
+    <div class="relative p-6 rounded-2xl bg-gradient-to-br from-teal-900 to-neutral-900 border border-teal-500/30 text-white shadow-xl flex flex-col justify-between overflow-hidden">
+      <div class="absolute -right-8 -bottom-8 w-36 h-36 bg-teal-500/20 rounded-full blur-2xl pointer-events-none"></div>
+      <div>
+        <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md bg-teal-800/50 text-teal-300 border border-teal-500/30">
+          Core Engineering Principles
+        </span>
+        <h3 class="text-lg font-bold mt-4 mb-2 text-white">
+          Garantía de Calidad & Escalabilidad
+        </h3>
+        <p class="text-sm text-neutral-300 leading-relaxed">
+          Diseño arquitecturas desacopladas orientadas a eventos, reproducibilidad con DVC/Git, observabilidad integral y monitoreo de <i>data drift</i> en producción.
+        </p>
+      </div>
+      
+      <div class="pt-4 mt-4 border-t border-teal-800/60 flex items-center justify-between text-xs text-teal-300 font-mono">
+        <span>CI/CD + DataOps</span>
+        <span>Zero Data Loss</span>
+      </div>
+    </div>
+  </div>
+</section>
