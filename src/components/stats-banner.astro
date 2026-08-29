@@ -1,0 +1,27 @@
+---
+// stats-banner.astro
+const stats = [
+  { value: "50k+", label: "Streaming Events / s", desc: "Throughput Kafka & Spark" },
+  { value: "98.2%", label: "RAG Accuracy Rate", desc: "Multi-modal LLMs & Qdrant" },
+  { value: "3K+", label: "Pipelines & Commits", desc: "Data Quality & Clean Code" },
+  { value: "9+", label: "Production Stacks", desc: "Cloud, Lakehouse & AI" },
+];
+---
+
+<section class="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+  <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+    {stats.map((stat) => (
+      <div class="p-7 rounded-3xl bg-cosmic-card/85 backdrop-blur-md border border-cosmic-border hover:border-neon-cyan/50 hover:bg-cosmic-card-hover transition-all duration-300 shadow-cosmic-card text-center group">
+        <div class="text-4xl sm:text-5xl font-black font-mono text-neon-cyan group-hover:scale-105 transition-transform">
+          {stat.value}
+        </div>
+        <div class="text-sm sm:text-base font-bold text-white mt-2">
+          {stat.label}
+        </div>
+        <div class="text-xs text-neutral-400 mt-1 font-mono">
+          {stat.desc}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

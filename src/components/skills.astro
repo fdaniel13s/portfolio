@@ -13,7 +13,7 @@ const skillCategories = [
       { name: "dbt (Data Build Tool)", level: "Avanzado", tag: "Transformación" },
       { name: "PostgreSQL / MySQL / DuckDB", level: "Avanzado", tag: "Bases de Datos" },
       { name: "Delta Lake / Medallion Arch", level: "Avanzado", tag: "Lakehouse" },
-      { name: "Modelado Dimensional (Star/Snowflake)", level: "Avanzado", tag: "Data Modeling" },
+      { name: "Modelado Dimensional", level: "Avanzado", tag: "Data Modeling" },
       { name: "Docker & Contenedores", level: "Avanzado", tag: "Infraestructura" },
     ]
   },
@@ -27,9 +27,9 @@ const skillCategories = [
       { name: "Scikit-Learn", level: "Avanzado", tag: "Machine Learning" },
       { name: "XGBoost & LightGBM", level: "Avanzado", tag: "Gradient Boosting" },
       { name: "PyTorch & Deep Learning", level: "Intermedio+", tag: "Redes Neuronales" },
-      { name: "Series Temporales & Forecasting", level: "Intermedio+", tag: "Estadística" },
-      { name: "SHAP & Explicabilidad de ML", level: "Avanzado", tag: "Interpretability" },
-      { name: "Feature Engineering & Selección", level: "Avanzado", tag: "Data Prep" },
+      { name: "Series Temporales & Stats", level: "Intermedio+", tag: "Estadística" },
+      { name: "SHAP & Explicabilidad ML", level: "Avanzado", tag: "Interpretability" },
+      { name: "Feature Engineering", level: "Avanzado", tag: "Data Prep" },
       { name: "A/B Testing & Inferencia", level: "Intermedio+", tag: "Experimentación" },
     ]
   },
@@ -40,11 +40,11 @@ const skillCategories = [
     description: "Sistemas RAG multimodales, agentes autónomos y bases de datos vectoriales.",
     skills: [
       { name: "LangChain & LlamaIndex", level: "Avanzado", tag: "Frameworks LLM" },
-      { name: "Vector DBs (Qdrant, Chroma, PGvector)", level: "Avanzado", tag: "Embeddings" },
-      { name: "RAG & Retrieval Avanzado (Hybrid/Rerank)", level: "Avanzado", tag: "Search" },
-      { name: "OpenAI / Anthropic / HuggingFace APIs", level: "Avanzado", tag: "Modelos" },
-      { name: "Prompt Engineering & Structured Output", level: "Avanzado", tag: "Técnicas" },
-      { name: "Computer Vision (YOLOv8, OpenCV)", level: "Intermedio+", tag: "Visión" },
+      { name: "Vector DBs (Qdrant, Chroma)", level: "Avanzado", tag: "Embeddings" },
+      { name: "RAG Híbrido & Reranking", level: "Avanzado", tag: "Search" },
+      { name: "OpenAI & HuggingFace APIs", level: "Avanzado", tag: "Modelos" },
+      { name: "Prompt Engineering", level: "Avanzado", tag: "Técnicas" },
+      { name: "Computer Vision (YOLOv8)", level: "Intermedio+", tag: "Visión" },
     ]
   },
   {
@@ -53,24 +53,12 @@ const skillCategories = [
     icon: "🔄",
     description: "Gobernanza, reproducibilidad, monitoreo y despliegue continuo de modelos y datos.",
     skills: [
-      { name: "MLflow (Model Registry & Tracking)", level: "Avanzado", tag: "ML Lifecycle" },
-      { name: "Great Expectations (Data Quality)", level: "Avanzado", tag: "Data Testing" },
-      { name: "AWS (S3, Lambda, Glue, EC2)", level: "Intermedio+", tag: "Cloud" },
-      { name: "GitHub Actions CI/CD for Data", level: "Avanzado", tag: "Automatización" },
+      { name: "MLflow (Model Registry)", level: "Avanzado", tag: "ML Lifecycle" },
+      { name: "Great Expectations", level: "Avanzado", tag: "Data Quality" },
+      { name: "AWS (S3, Lambda, EC2)", level: "Intermedio+", tag: "Cloud" },
+      { name: "GitHub Actions CI/CD", level: "Avanzado", tag: "Automatización" },
       { name: "DVC (Data Version Control)", level: "Intermedio+", tag: "Versionado" },
       { name: "Linux & Bash Scripting", level: "Avanzado", tag: "Sistemas" },
-    ]
-  },
-  {
-    id: "bi-viz",
-    name: "BI & Visualización",
-    icon: "📈",
-    description: "Creación de tableros de control ejecutivos y aplicaciones interactivas de datos.",
-    skills: [
-      { name: "Streamlit", level: "Avanzado", tag: "Data Apps" },
-      { name: "Power BI & DAX", level: "Intermedio+", tag: "Dashboarding" },
-      { name: "Plotly & Seaborn / Matplotlib", level: "Avanzado", tag: "Visualización" },
-      { name: "Apache Superset", level: "Intermedio", tag: "BI Open Source" },
     ]
   },
   {
@@ -82,36 +70,37 @@ const skillCategories = [
       { name: "FastAPI & Pydantic", level: "Avanzado", tag: "APIs de Datos" },
       { name: "Java & Spring Boot", level: "Avanzado", tag: "Backend Enterprise" },
       { name: "C# & .NET Core", level: "Avanzado", tag: "Backend" },
-      { name: "TypeScript & React / Vue", level: "Intermedio+", tag: "Frontend" },
+      { name: "Kotlin Jetpack Compose", level: "Avanzado", tag: "Mobile" },
       { name: "Clean Architecture & DDD", level: "Avanzado", tag: "Arquitectura" },
     ]
   }
 ];
 ---
 
-<section id="skills" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-  <div class="text-center max-w-3xl mx-auto mb-12">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 text-xs font-semibold uppercase tracking-wider mb-3">
-      Stack Tecnológico
-    </div>
-    <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 dark:text-white tracking-tight">
+<section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+  
+  <div class="text-center max-w-3xl mx-auto mb-16">
+    <span class="text-neon-cyan font-bold text-sm tracking-wider uppercase">
+      Tech Ecosystem
+    </span>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-3 tracking-tight">
       Habilidades & Especialización Técnica
     </h2>
-    <p class="mt-3 text-base text-neutral-600 dark:text-neutral-300">
+    <p class="mt-4 text-base text-neutral-300">
       Herramientas, frameworks y metodologías para diseñar soluciones de datos robustas, mantenibles y de alto rendimiento.
     </p>
   </div>
 
   <!-- Skill Category Tabs -->
-  <div class="flex flex-wrap justify-center gap-2 mb-8" id="skills-tabs">
+  <div class="flex flex-wrap justify-center gap-3 mb-10" id="skills-tabs">
     {skillCategories.map((cat, index) => (
       <button
         type="button"
         data-category={cat.id}
-        class={`skill-tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
+        class={`skill-tab-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${
           index === 0
-            ? "bg-teal-600 text-white shadow-md shadow-teal-600/20 active"
-            : "bg-white/80 dark:bg-neutral-900/80 text-neutral-700 dark:text-neutral-300 border border-neutral-200/80 dark:border-neutral-800/80 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+            ? "bg-neon-cyan text-cosmic-950 shadow-neon-cyan active"
+            : "bg-cosmic-card text-neutral-300 border border-cosmic-border hover:border-neon-cyan/40 hover:text-white"
         }`}
       >
         <span>{cat.icon}</span>
@@ -127,19 +116,19 @@ const skillCategories = [
         id={`panel-${cat.id}`}
         class={`skill-panel ${index === 0 ? "block" : "hidden"} transition-opacity duration-300`}
       >
-        <div class="p-6 sm:p-8 rounded-3xl bg-white/70 dark:bg-neutral-900/70 backdrop-blur-md border border-neutral-200/80 dark:border-neutral-800/80 shadow-sm">
+        <div class="p-8 sm:p-10 rounded-3xl bg-cosmic-card/85 backdrop-blur-md border border-cosmic-border shadow-cosmic-card">
           
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-6 mb-6 border-b border-neutral-100 dark:border-neutral-800">
+          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 mb-8 border-b border-cosmic-border">
             <div>
-              <h3 class="text-xl font-bold text-neutral-900 dark:text-white flex items-center gap-2">
+              <h3 class="text-2xl font-bold text-white flex items-center gap-2.5">
                 <span>{cat.icon}</span>
                 <span>{cat.name}</span>
               </h3>
-              <p class="text-sm text-neutral-500 dark:text-neutral-400 mt-1">
+              <p class="text-sm text-neutral-300 mt-1">
                 {cat.description}
               </p>
             </div>
-            <span class="text-xs font-mono text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950/60 px-3 py-1 rounded-lg self-start sm:self-auto">
+            <span class="text-xs font-mono text-neon-cyan bg-cosmic-900 px-4 py-1.5 rounded-full border border-cosmic-border self-start sm:self-auto">
               {cat.skills.length} Tecnologías Dominadas
             </span>
           </div>
@@ -147,15 +136,15 @@ const skillCategories = [
           <!-- Skills Grid -->
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {cat.skills.map((skill) => (
-              <div class="p-4 rounded-2xl bg-neutral-50/80 dark:bg-neutral-800/50 border border-neutral-200/60 dark:border-neutral-700/60 hover:border-teal-500/40 dark:hover:border-teal-500/40 transition-all duration-200 flex flex-col justify-between group">
-                <div class="flex items-start justify-between gap-2 mb-2">
-                  <span class="text-sm font-semibold text-neutral-900 dark:text-neutral-100 group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
+              <div class="p-5 rounded-2xl bg-cosmic-900/90 border border-cosmic-border hover:border-neon-cyan/50 transition-all duration-200 flex flex-col justify-between group">
+                <div class="mb-4">
+                  <span class="text-base font-bold text-white group-hover:text-neon-cyan transition-colors">
                     {skill.name}
                   </span>
                 </div>
-                <div class="flex items-center justify-between pt-2 mt-auto border-t border-neutral-200/40 dark:border-neutral-700/40 text-[11px] font-mono">
-                  <span class="text-neutral-500 dark:text-neutral-400">{skill.tag}</span>
-                  <span class="text-teal-600 dark:text-teal-400 font-semibold">{skill.level}</span>
+                <div class="flex items-center justify-between pt-3 border-t border-cosmic-border/60 text-xs font-mono">
+                  <span class="text-neutral-400">{skill.tag}</span>
+                  <span class="text-neon-cyan font-semibold">{skill.level}</span>
                 </div>
               </div>
             ))}
@@ -178,13 +167,13 @@ const skillCategories = [
 
         // Reset all tabs
         tabs.forEach(t => {
-          t.classList.remove('bg-teal-600', 'text-white', 'shadow-md', 'shadow-teal-600/20', 'active');
-          t.classList.add('bg-white/80', 'dark:bg-neutral-900/80', 'text-neutral-700', 'dark:text-neutral-300', 'border', 'border-neutral-200/80', 'dark:border-neutral-800/80');
+          t.classList.remove('bg-neon-cyan', 'text-cosmic-950', 'shadow-neon-cyan', 'active');
+          t.classList.add('bg-cosmic-card', 'text-neutral-300', 'border', 'border-cosmic-border');
         });
 
         // Activate clicked tab
-        tab.classList.remove('bg-white/80', 'dark:bg-neutral-900/80', 'text-neutral-700', 'dark:text-neutral-300', 'border');
-        tab.classList.add('bg-teal-600', 'text-white', 'shadow-md', 'shadow-teal-600/20', 'active');
+        tab.classList.remove('bg-cosmic-card', 'text-neutral-300', 'border');
+        tab.classList.add('bg-neon-cyan', 'text-cosmic-950', 'shadow-neon-cyan', 'active');
 
         // Hide all panels, show active panel
         panels.forEach(panel => {

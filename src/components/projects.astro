@@ -24,7 +24,7 @@ const projects: Project[] = [
     subtitle: "Detección temprana de patologías y estimación de rendimiento agrícola con Deep Learning",
     category: "data-science",
     categoryLabel: "Data Science & Vision",
-    badgeClass: "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/70 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800",
+    badgeClass: "bg-emerald-950/80 text-emerald-300 border-emerald-500/40",
     problem: "Pérdida del 30-40% en cosechas de pequeños agricultores debido al diagnóstico tardío de plagas y estrés hídrico.",
     architecture: "Ingesta de telemetría IoT y capturas fotográficas en campo -> Pipeline de visión artificial con YOLOv8 y PyTorch -> Feature store para clima, humedad de suelo y nutrientes -> API de inferencia en FastAPI (<90ms) integrada con app móvil Kotlin Compose y panel Web Vue.js.",
     metrics: [
@@ -46,7 +46,7 @@ const projects: Project[] = [
     subtitle: "Pipeline streaming y Lakehouse con Arquitectura Medallion para evaluación de riesgo y facturas",
     category: "data-eng",
     categoryLabel: "Data Engineering",
-    badgeClass: "bg-teal-50 text-teal-700 dark:bg-teal-950/70 dark:text-teal-300 border-teal-200 dark:border-teal-800",
+    badgeClass: "bg-cyan-950/80 text-neon-cyan border-neon-cyan/40",
     problem: "Verificación manual lenta y riesgo de fraude crediticio en emisión y negociación de facturas comerciales (Factoring).",
     architecture: "Captura de eventos en tiempo real con Apache Kafka -> Streaming con Apache Spark -> Capa Bronze (Raw Parquet/S3), Silver (Deduplicación, enriquecimiento y reglas de validación en Delta Lake) y Gold (Modelado dimensional con dbt Core y agregaciones de riesgo para analítica) -> PostgreSQL y DuckDB.",
     metrics: [
@@ -65,7 +65,7 @@ const projects: Project[] = [
     subtitle: "Sistema RAG Multimodal para extracción inteligente de comprobantes y auditoría tributaria",
     category: "gen-ai",
     categoryLabel: "Generative AI & LLMs",
-    badgeClass: "bg-purple-50 text-purple-700 dark:bg-purple-950/70 dark:text-purple-300 border-purple-200 dark:border-purple-800",
+    badgeClass: "bg-purple-950/80 text-purple-300 border-purple-500/40",
     problem: "Auditoría manual de comprobantes tributarios complejos, notas de crédito y contratos que toma horas por lote.",
     architecture: "Parser OCR y preprocesamiento de documentos estructurados y no estructurados -> Chunking contextual jerárquico -> Embeddings de alta dimensionalidad en Qdrant Vector DB -> Búsqueda híbrida (Dense + BM25) con reranking Cohere -> Generación estructurada validada con Pydantic y LangChain.",
     metrics: [
@@ -84,7 +84,7 @@ const projects: Project[] = [
     subtitle: "Segmentación RFM automatizada, predicción de abandono y recomendador híbrido de ofertas",
     category: "data-science",
     categoryLabel: "Data Science & MLOps",
-    badgeClass: "bg-cyan-50 text-cyan-700 dark:bg-cyan-950/70 dark:text-cyan-300 border-cyan-200 dark:border-cyan-800",
+    badgeClass: "bg-blue-950/80 text-blue-300 border-blue-500/40",
     problem: "Alto desperdicio de productos cercanos al vencimiento por falta de personalización de ofertas en tiempo oportuno.",
     architecture: "Pipeline de datos con extracción de transacciones -> Feature engineering (RFM, estacionalidad, elasticidad de precio) -> Modelos de clasificación con XGBoost y LightGBM -> Explicabilidad de decisiones con SHAP -> Tracking de experimentos y versionado con MLflow -> Backend Spring Boot + Frontend Angular.",
     metrics: [
@@ -102,7 +102,7 @@ const projects: Project[] = [
     subtitle: "Orquestación moderna de datos con Airflow, transformaciones modulares dbt y Data Quality",
     category: "data-eng",
     categoryLabel: "Data Engineering",
-    badgeClass: "bg-teal-50 text-teal-700 dark:bg-teal-950/70 dark:text-teal-300 border-teal-200 dark:border-teal-800",
+    badgeClass: "bg-cyan-950/80 text-neon-cyan border-neon-cyan/40",
     problem: "Silos de información y discrepancias en métricas clave entre departamentos de operaciones y finanzas.",
     architecture: "Orquestación centralizada de DAGs con Apache Airflow -> Extracción incremental de fuentes transaccionales -> Validaciones automatizadas de calidad con Great Expectations -> Transformaciones con dbt Core en DuckDB / PostgreSQL -> Tableros ejecutivos en Streamlit.",
     metrics: [
@@ -120,7 +120,7 @@ const projects: Project[] = [
     subtitle: "Motor de scoring crediticio con explicabilidad algorítmica para cumplimiento normativo",
     category: "data-science",
     categoryLabel: "Machine Learning & Stats",
-    badgeClass: "bg-blue-50 text-blue-700 dark:bg-blue-950/70 dark:text-blue-300 border-blue-200 dark:border-blue-800",
+    badgeClass: "bg-indigo-950/80 text-indigo-300 border-indigo-500/40",
     problem: "Cajas negras en modelos de ML bancarios que impiden la justificación de aprobaciones y rechazos ante reguladores.",
     architecture: "Preprocesamiento y balanceo de datos crediticios (SMOTE-NC) -> Ensamble con CatBoost y Random Forest optimizado mediante Optuna -> Integración de explicaciones SHAP (Waterfalls y Force Plots locales) -> Dashboard interactivo de scoring en tiempo real con Streamlit y FastAPI.",
     metrics: [
@@ -142,30 +142,31 @@ const filterCategories = [
 ];
 ---
 
-<section id="projects" class="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
-  <!-- Section Header -->
-  <div class="text-center max-w-3xl mx-auto mb-12">
-    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-teal-50 dark:bg-teal-950/60 border border-teal-200 dark:border-teal-800 text-teal-700 dark:text-teal-300 text-xs font-semibold uppercase tracking-wider mb-3">
-      Portafolio de Proyectos
-    </div>
-    <h2 class="text-3xl sm:text-4xl font-extrabold text-neutral-900 dark:text-white tracking-tight">
+<section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+  
+  <!-- Section Header (FolioX style) -->
+  <div class="text-center max-w-3xl mx-auto mb-16">
+    <span class="text-neon-cyan font-bold text-sm tracking-wider uppercase">
+      Portfolio
+    </span>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-3 tracking-tight">
       Casos de Estudio & Soluciones de Datos
     </h2>
-    <p class="mt-3 text-base text-neutral-600 dark:text-neutral-300">
+    <p class="mt-4 text-base text-neutral-300">
       Proyectos desarrollados con estándares de producción: arquitectura de datos, pipelines escalables, modelos de ML explicables y sistemas de IA Generativa.
     </p>
   </div>
 
-  <!-- Filter Category Buttons -->
-  <div class="flex flex-wrap justify-center gap-2 mb-10" id="project-filters">
+  <!-- Filter Category Buttons (Pill style) -->
+  <div class="flex flex-wrap justify-center gap-3 mb-12" id="project-filters">
     {filterCategories.map((cat, idx) => (
       <button
         type="button"
         data-filter={cat.id}
-        class={`project-filter-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
+        class={`project-filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${
           idx === 0
-            ? "bg-teal-600 text-white shadow-md shadow-teal-600/20 active-filter"
-            : "bg-white/80 dark:bg-neutral-900/80 text-neutral-700 dark:text-neutral-300 border border-neutral-200/80 dark:border-neutral-800/80 hover:bg-neutral-100 dark:hover:bg-neutral-800"
+            ? "bg-neon-cyan text-cosmic-950 shadow-neon-cyan active-filter"
+            : "bg-cosmic-card text-neutral-300 border border-cosmic-border hover:border-neon-cyan/40 hover:text-white"
         }`}
       >
         <span>{cat.icon}</span>
@@ -179,11 +180,11 @@ const filterCategories = [
     {projects.map((project) => (
       <article
         data-category={project.category}
-        class="project-card flex flex-col justify-between rounded-3xl bg-white/80 dark:bg-neutral-900/80 backdrop-blur-md border border-neutral-200/80 dark:border-neutral-800/80 hover:border-teal-500/50 dark:hover:border-teal-500/50 shadow-sm hover:shadow-xl hover:shadow-teal-500/5 transition-all duration-300 overflow-hidden group"
+        class="project-card flex flex-col justify-between rounded-3xl bg-cosmic-card/85 backdrop-blur-md border border-cosmic-border hover:border-neon-cyan/50 hover:bg-cosmic-card-hover transition-all duration-300 shadow-cosmic-card overflow-hidden group"
       >
         <div>
           <!-- Image Container / Carousel -->
-          <div class="relative w-full h-56 bg-neutral-950 overflow-hidden border-b border-neutral-100 dark:border-neutral-800">
+          <div class="relative w-full h-60 bg-cosmic-950 overflow-hidden border-b border-cosmic-border">
             <div class="carousel-container relative w-full h-full">
               {project.images.map((img, idx) => (
                 <img
@@ -198,11 +199,11 @@ const filterCategories = [
             </div>
 
             <!-- Gradient Overlay for Contrast -->
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-cosmic-950 via-cosmic-950/20 to-transparent pointer-events-none"></div>
 
             <!-- Domain Badge -->
             <div class="absolute top-4 left-4 z-10">
-              <span class={`px-3 py-1 rounded-lg text-xs font-semibold font-mono border backdrop-blur-md ${project.badgeClass}`}>
+              <span class={`px-3.5 py-1 rounded-full text-xs font-semibold font-mono border backdrop-blur-md ${project.badgeClass}`}>
                 {project.categoryLabel}
               </span>
             </div>
@@ -212,14 +213,14 @@ const filterCategories = [
               <div class="absolute bottom-3 right-3 z-10 flex gap-1.5">
                 <button
                   type="button"
-                  class="carousel-prev w-7 h-7 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center text-xs backdrop-blur-sm transition-colors"
+                  class="carousel-prev w-8 h-8 rounded-full bg-cosmic-950/80 hover:bg-neon-cyan hover:text-cosmic-950 text-white flex items-center justify-center text-xs backdrop-blur-sm transition-colors border border-cosmic-border"
                   aria-label="Imagen anterior"
                 >
                   ‹
                 </button>
                 <button
                   type="button"
-                  class="carousel-next w-7 h-7 rounded-full bg-black/60 hover:bg-black/90 text-white flex items-center justify-center text-xs backdrop-blur-sm transition-colors"
+                  class="carousel-next w-8 h-8 rounded-full bg-cosmic-950/80 hover:bg-neon-cyan hover:text-cosmic-950 text-white flex items-center justify-center text-xs backdrop-blur-sm transition-colors border border-cosmic-border"
                   aria-label="Siguiente imagen"
                 >
                   ›
@@ -229,43 +230,43 @@ const filterCategories = [
           </div>
 
           <!-- Content Body -->
-          <div class="p-6 sm:p-7">
+          <div class="p-7 sm:p-8">
             <!-- Title & Subtitle -->
-            <h3 class="text-2xl font-bold text-neutral-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors leading-tight">
+            <h3 class="text-2xl font-bold text-white group-hover:text-neon-cyan transition-colors leading-tight">
               {project.title}
             </h3>
-            <p class="text-sm font-medium text-teal-600 dark:text-teal-400 mt-1 mb-4">
+            <p class="text-sm font-medium text-neon-cyan mt-1.5 mb-5">
               {project.subtitle}
             </p>
 
             <!-- Problem & Business Context -->
             <div class="mb-4">
-              <span class="text-xs font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500 block mb-1">
+              <span class="text-xs font-bold uppercase tracking-wider text-neutral-400 block mb-1">
                 📌 Reto & Impacto de Negocio
               </span>
-              <p class="text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed">
+              <p class="text-sm text-neutral-300 leading-relaxed">
                 {project.problem}
               </p>
             </div>
 
             <!-- Data Architecture & Pipeline -->
             <div class="mb-5">
-              <span class="text-xs font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500 block mb-1">
+              <span class="text-xs font-bold uppercase tracking-wider text-neutral-400 block mb-1">
                 🏛️ Arquitectura & Pipeline de Datos
               </span>
-              <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-300 leading-relaxed bg-neutral-50 dark:bg-neutral-800/60 p-3 rounded-xl border border-neutral-200/50 dark:border-neutral-700/50 font-sans">
+              <p class="text-xs sm:text-sm text-neutral-300 leading-relaxed bg-cosmic-900/90 p-3.5 rounded-2xl border border-cosmic-border font-sans">
                 {project.architecture}
               </p>
             </div>
 
             <!-- Key Metrics Grid -->
-            <div class="grid grid-cols-3 gap-2 py-3 px-3.5 mb-5 rounded-2xl bg-teal-50/50 dark:bg-neutral-800/80 border border-teal-100 dark:border-neutral-700/80 text-center">
+            <div class="grid grid-cols-3 gap-2 py-3 px-3.5 mb-5 rounded-2xl bg-cosmic-900/80 border border-cosmic-border text-center">
               {project.metrics.map((metric) => (
                 <div>
-                  <div class="text-sm sm:text-base font-bold font-mono text-teal-700 dark:text-teal-300">
+                  <div class="text-sm sm:text-base font-bold font-mono text-neon-cyan">
                     {metric.value}
                   </div>
-                  <div class="text-[10px] sm:text-[11px] text-neutral-500 dark:text-neutral-400 mt-0.5 leading-tight">
+                  <div class="text-[10px] sm:text-[11px] text-neutral-400 mt-0.5 leading-tight">
                     {metric.label}
                   </div>
                 </div>
@@ -274,12 +275,12 @@ const filterCategories = [
 
             <!-- Technologies -->
             <div class="mb-6">
-              <span class="text-xs font-bold uppercase tracking-wider text-neutral-400 dark:text-neutral-500 block mb-2">
+              <span class="text-xs font-bold uppercase tracking-wider text-neutral-400 block mb-2">
                 Stack Tecnológico:
               </span>
               <div class="flex flex-wrap gap-1.5">
                 {project.technologies.map((tech) => (
-                  <span class="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-neutral-100 dark:bg-neutral-800 text-neutral-700 dark:text-neutral-300 border border-neutral-200/70 dark:border-neutral-700/70">
+                  <span class="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-cosmic-900 text-neutral-200 border border-cosmic-border">
                     {tech}
                   </span>
                 ))}
@@ -289,14 +290,14 @@ const filterCategories = [
         </div>
 
         <!-- Card Footer / Links -->
-        <div class="px-6 sm:px-7 pb-6 pt-2 border-t border-neutral-100 dark:border-neutral-800 flex flex-wrap items-center justify-between gap-3">
+        <div class="px-7 sm:px-8 pb-7 pt-3 border-t border-cosmic-border flex flex-wrap items-center justify-between gap-3">
           <div class="flex items-center gap-2">
             {project.github && project.github.map((link, idx) => (
               <a
                 href={link}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl text-xs font-semibold bg-neutral-100 dark:bg-neutral-800 text-neutral-800 dark:text-neutral-200 hover:bg-neutral-200 dark:hover:bg-neutral-700 border border-neutral-200 dark:border-neutral-700 transition-colors"
+                class="inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-bold bg-cosmic-900 text-white hover:bg-neon-cyan hover:text-cosmic-950 border border-cosmic-border transition-all"
               >
                 <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
@@ -308,7 +309,7 @@ const filterCategories = [
 
           <a
             href="mailto:ferndani2718@gmail.com?subject=Consulta%20sobre%20proyecto%20"
-            class="inline-flex items-center gap-1 text-xs font-semibold text-teal-600 dark:text-teal-400 hover:underline"
+            class="inline-flex items-center gap-1.5 text-xs font-bold text-neon-cyan hover:underline"
           >
             <span>Consultar caso</span>
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -333,13 +334,13 @@ const filterCategories = [
 
         // Reset buttons style
         filterBtns.forEach(b => {
-          b.classList.remove('bg-teal-600', 'text-white', 'shadow-md', 'shadow-teal-600/20', 'active-filter');
-          b.classList.add('bg-white/80', 'dark:bg-neutral-900/80', 'text-neutral-700', 'dark:text-neutral-300', 'border', 'border-neutral-200/80', 'dark:border-neutral-800/80');
+          b.classList.remove('bg-neon-cyan', 'text-cosmic-950', 'shadow-neon-cyan', 'active-filter');
+          b.classList.add('bg-cosmic-card', 'text-neutral-300', 'border', 'border-cosmic-border');
         });
 
         // Highlight active button
-        btn.classList.remove('bg-white/80', 'dark:bg-neutral-900/80', 'text-neutral-700', 'dark:text-neutral-300', 'border');
-        btn.classList.add('bg-teal-600', 'text-white', 'shadow-md', 'shadow-teal-600/20', 'active-filter');
+        btn.classList.remove('bg-cosmic-card', 'text-neutral-300', 'border');
+        btn.classList.add('bg-neon-cyan', 'text-cosmic-950', 'shadow-neon-cyan', 'active-filter');
 
         // Filter projects
         projectCards.forEach(card => {

@@ -1,7 +1,9 @@
 ---
-const { title = "Fernando Quispe | Data & AI Engineer" } = Astro.props;
+const { title = "Fernando Quispe | FolioX Data & AI Portfolio" } = Astro.props;
 import Header from '../components/header.astro';
 import Hero from '../components/hero.astro';
+import AboutMe from '../components/about-me.astro';
+import StatsBanner from '../components/stats-banner.astro';
 import DataArchitecture from '../components/data-architecture.astro';
 import Skills from '../components/skills.astro';
 import Projects from '../components/projects.astro';
@@ -11,7 +13,7 @@ import Footer from '../components/footer.astro';
 ---
 
 <!DOCTYPE html>
-<html lang="es" class="dark">
+<html lang="es" class="dark scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/webp" href="/images/icon-fdaniel13s.webp" />
@@ -20,49 +22,45 @@ import Footer from '../components/footer.astro';
     
     <!-- SEO Meta Tags -->
     <title>{title}</title>
-    <meta name="description" content="Portafolio profesional de Fernando Quispe. Ingeniero de Software especializado en Data Science, Data Engineering, Lakehouse, Pipelines Streaming, MLOps y GenAI / LLMs." />
-    <meta name="keywords" content="Data Engineering, Data Science, Machine Learning, AI, GenAI, LLMs, MLOps, Apache Spark, Kafka, Python, PyTorch, LangChain, Fernando Quispe" />
+    <meta name="description" content="FolioX - Portafolio profesional de Fernando Quispe. Software Engineer especializado en Data Science, Data Engineering, Lakehouse, Streaming con Kafka/Spark y GenAI / LLMs." />
+    <meta name="keywords" content="Fernando Quispe, FolioX, Data Engineer, Data Science, AI Specialist, Apache Spark, Kafka, Python, PyTorch, LangChain, Lima Peru" />
     <meta name="author" content="Fernando Daniel Quispe Condori" />
 
-    <!-- Open Graph / Social Media -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Fernando Quispe | Data & AI Specialist" />
+    <meta property="og:title" content="Fernando Quispe | FolioX Data & AI Specialist" />
     <meta property="og:description" content="Portafolio de proyectos de alto impacto en Data Science, Data Engineering e Inteligencia Artificial." />
     <meta property="og:image" content="/images/fernando-quispe.jpg" />
 
-    <!-- Fonts -->
+    <!-- Fonts: Plus Jakarta Sans & JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Anti-flash script for Dark/Light theme -->
-    <script is:inline>
-      const theme = (() => {
-        if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
-          return localStorage.getItem('theme');
-        }
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-          return 'dark';
-        }
-        return 'dark'; // Default to dark for a high-tech data portfolio
-      })();
-      if (theme === 'dark') {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   </head>
 
-  <body class="bg-neutral-50 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 font-sans min-h-screen flex flex-col antialiased transition-colors duration-300 relative selection:bg-teal-500 selection:text-white">
-    <!-- Subtle Background Data Grid / Dot Pattern -->
-    <div class="fixed inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px] pointer-events-none z-0"></div>
+  <body class="bg-gradient-to-b from-cosmic-950 via-cosmic-900 to-cosmic-850 text-neutral-100 font-sans min-h-screen flex flex-col antialiased selection:bg-neon-cyan selection:text-cosmic-950 relative overflow-x-hidden">
+    
+    <!-- Cosmic Background Glowing Dust & Ambient Light (FolioX exact atmosphere) -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+      <!-- Top Radial Neon Glow -->
+      <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-neon-cyan/15 via-neon-purple/10 to-transparent rounded-full blur-[120px]"></div>
+      
+      <!-- Mid Purple Ambient Glow -->
+      <div class="absolute top-[35%] -left-32 w-[600px] h-[600px] bg-cosmic-border/30 rounded-full blur-[140px]"></div>
+      <div class="absolute top-[65%] -right-32 w-[600px] h-[600px] bg-neon-cyan/10 rounded-full blur-[140px]"></div>
 
+      <!-- Subtle Cosmic Starry Dots / Grid -->
+      <div class="absolute inset-0 bg-[linear-gradient(to_right,#382E8015_1px,transparent_1px),linear-gradient(to_bottom,#382E8015_1px,transparent_1px)] bg-[size:40px_40px] opacity-70"></div>
+    </div>
+
+    <!-- Main Content Container -->
     <div class="relative z-10 flex flex-col flex-1">
       <Header />
       
       <main class="flex-1">
         <Hero />
+        <AboutMe />
+        <StatsBanner />
         <DataArchitecture />
         <Skills />
         <Projects />
@@ -73,12 +71,13 @@ import Footer from '../components/footer.astro';
 
       <Footer />
     </div>
+
   </body>
 </html>
 
 <style is:global>
   :root {
-    color-scheme: light dark;
+    color-scheme: dark;
   }
   
   html {
@@ -86,18 +85,18 @@ import Footer from '../components/footer.astro';
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
-  /* Custom scrollbar */
+  /* Custom Neon Scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: transparent;
+    background: #0B0826;
   }
   ::-webkit-scrollbar-thumb {
-    background: #14b8a660;
+    background: #392C87;
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #14b8a6a0;
+    background: #00D2FF;
   }
 </style>
