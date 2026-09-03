@@ -1,61 +1,58 @@
 ---
-// header.astro
+// src/components/header.astro
 const navItems = [
-  { title: "Home", label: "home", url: "#home" },
-  { title: "About", label: "about", url: "#about" },
-  { title: "Service", label: "service", url: "#architecture" },
-  { title: "Portfolio", label: "portfolio", url: "#projects" },
-  { title: "Skills", label: "skills", url: "#skills" },
-  { title: "Contact", label: "contact", url: "#contact" },
+  { title: "Inicio", label: "home", url: "#home" },
+  { title: "Sobre mí", label: "about", url: "#about" },
+  { title: "Arquitectura", label: "architecture", url: "#architecture" },
+  { title: "Proyectos", label: "projects", url: "#projects" },
+  { title: "Habilidades", label: "skills", url: "#skills" },
+  { title: "Contacto", label: "contact", url: "#contact" },
 ];
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-4 sm:px-8">
-  <div class="max-w-7xl mx-auto flex items-center justify-between backdrop-blur-md bg-cosmic-950/70 border border-cosmic-border/50 rounded-2xl px-6 py-3.5 shadow-2xl">
+  <div class="max-w-7xl mx-auto flex items-center justify-between backdrop-blur-md bg-zinc-950/80 border border-zinc-800/80 rounded-2xl px-6 py-3 shadow-lg">
     
-    <!-- FolioX Brand Logo -->
+    <!-- Personal Brand Logo -->
     <a href="#home" class="flex items-center gap-2.5 group">
-      <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-neon-cyan to-neon-blue flex items-center justify-center text-cosmic-950 font-black text-base shadow-neon-cyan group-hover:scale-105 transition-transform">
-        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
-          <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-        </svg>
+      <div class="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-700/80 flex items-center justify-center text-cyan-400 font-bold text-xs font-mono group-hover:border-cyan-500/50 transition-colors">
+        FQ
       </div>
       <div class="flex items-center">
-        <span class="text-xl font-extrabold tracking-tight text-white">
-          Folio<span class="text-neon-cyan">X</span>
+        <span class="text-lg font-bold tracking-tight text-white">
+          Fernando<span class="text-cyan-400">.dev</span>
         </span>
       </div>
     </a>
 
     <!-- Desktop Navigation Links -->
-    <nav class="hidden lg:flex items-center gap-8 text-sm font-medium">
+    <nav class="hidden lg:flex items-center gap-7 text-sm font-medium">
       {
         navItems.map((item, idx) => (
           <a
-            class={`nav-link relative py-1 text-neutral-300 hover:text-neon-cyan transition-colors flex flex-col items-center ${idx === 0 ? 'text-neon-cyan font-semibold active-nav' : ''}`}
+            class={`nav-link relative py-1 text-zinc-400 hover:text-white transition-colors flex flex-col items-center ${idx === 0 ? 'text-white font-semibold active-nav' : ''}`}
             aria-label={item.label}
             href={item.url}
           >
-            <!-- Top dot indicator as in FolioX reference -->
-            <span class={`nav-dot w-1.5 h-1.5 rounded-full bg-neon-cyan mb-1 shadow-neon-cyan transition-opacity duration-300 ${idx === 0 ? 'opacity-100' : 'opacity-0'}`}></span>
+            <span class={`nav-dot w-1.5 h-1.5 rounded-full bg-cyan-400 mb-1 transition-opacity duration-300 ${idx === 0 ? 'opacity-100' : 'opacity-0'}`}></span>
             <span>{item.title}</span>
           </a>
         ))
       }
     </nav>
 
-    <!-- Right Side: Divider + Socials + Download CV -->
+    <!-- Right Side: Socials + CV -->
     <div class="hidden sm:flex items-center gap-4">
-      <div class="h-4 w-[1px] bg-cosmic-border"></div>
+      <div class="h-4 w-[1px] bg-zinc-800"></div>
       
-      <!-- Social Media Icons (FolioX style) -->
-      <div class="flex items-center gap-3 text-neutral-400">
+      <!-- Social Media Icons -->
+      <div class="flex items-center gap-3 text-zinc-400">
         <a
           href="https://github.com/fdaniel13s"
           target="_blank"
           rel="noopener noreferrer"
           aria-label="GitHub"
-          class="hover:text-neon-cyan transition-colors"
+          class="hover:text-white transition-colors"
         >
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"></path>
@@ -67,7 +64,7 @@ const navItems = [
           target="_blank"
           rel="noopener noreferrer"
           aria-label="LinkedIn"
-          class="hover:text-neon-cyan transition-colors"
+          class="hover:text-white transition-colors"
         >
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
             <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 8.76c.97 0 1.75-.79 1.75-1.76s-.78-1.75-1.75-1.75a1.76 1.76 0 0 0-1.76 1.75c0 .97.79 1.76 1.76 1.76m1.39 9.74v-8.37H5.07v8.37h2.78z"></path>
@@ -77,7 +74,7 @@ const navItems = [
         <a
           href="mailto:ferndani2718@gmail.com"
           aria-label="Email"
-          class="hover:text-neon-cyan transition-colors"
+          class="hover:text-white transition-colors"
         >
           <svg class="w-4 h-4 fill-none stroke-current" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
@@ -89,7 +86,7 @@ const navItems = [
         href="https://drive.google.com/file/d/1zpLKsT-llOvlMkJbGSawzjoeXDz0qFOf/view?usp=sharing"
         target="_blank"
         rel="noopener noreferrer"
-        class="ml-2 px-4 py-1.5 rounded-full text-xs font-bold text-cosmic-950 bg-neon-cyan hover:bg-neon-cyan-hover shadow-neon-cyan transition-all transform hover:scale-105"
+        class="ml-2 px-4 py-1.5 rounded-lg text-xs font-semibold text-zinc-900 bg-white hover:bg-zinc-200 transition-colors"
       >
         CV
       </a>
@@ -100,12 +97,12 @@ const navItems = [
       id="mobile-menu-btn"
       type="button"
       aria-label="Abrir menú"
-      class="lg:hidden p-2 rounded-xl text-neutral-300 hover:text-neon-cyan hover:bg-cosmic-card"
+      class="lg:hidden p-2 rounded-lg text-zinc-300 hover:text-white hover:bg-zinc-900"
     >
-      <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg id="menu-icon-open" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
       </svg>
-      <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
       </svg>
     </button>
@@ -113,27 +110,27 @@ const navItems = [
   </div>
 
   <!-- Mobile Dropdown Menu -->
-  <div id="mobile-menu" class="hidden lg:hidden max-w-7xl mx-auto mt-2 p-5 bg-cosmic-900/95 backdrop-blur-xl border border-cosmic-border rounded-2xl shadow-2xl space-y-3">
+  <div id="mobile-menu" class="hidden lg:hidden max-w-7xl mx-auto mt-2 p-4 bg-zinc-950/95 backdrop-blur-xl border border-zinc-800 rounded-2xl shadow-xl space-y-2">
     {
       navItems.map((item) => (
         <a
-          class="mobile-nav-link block px-3 py-2 rounded-xl text-sm font-medium text-neutral-200 hover:text-neon-cyan hover:bg-cosmic-card transition-colors"
+          class="mobile-nav-link block px-3 py-2 rounded-lg text-sm font-medium text-zinc-300 hover:text-white hover:bg-zinc-900 transition-colors"
           href={item.url}
         >
           {item.title}
         </a>
       ))
     }
-    <div class="pt-3 border-t border-cosmic-border flex justify-between items-center">
-      <div class="flex items-center gap-3 text-neutral-400">
-        <a href="https://github.com/fdaniel13s" target="_blank" class="hover:text-neon-cyan">GitHub</a>
+    <div class="pt-3 border-t border-zinc-800 flex justify-between items-center text-sm">
+      <div class="flex items-center gap-3 text-zinc-400">
+        <a href="https://github.com/fdaniel13s" target="_blank" class="hover:text-white">GitHub</a>
         <span>•</span>
-        <a href="https://www.linkedin.com/in/fernando-quispe-5532901b4/" target="_blank" class="hover:text-neon-cyan">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/fernando-quispe-5532901b4/" target="_blank" class="hover:text-white">LinkedIn</a>
       </div>
       <a
         href="https://drive.google.com/file/d/1zpLKsT-llOvlMkJbGSawzjoeXDz0qFOf/view?usp=sharing"
         target="_blank"
-        class="px-4 py-1.5 rounded-full text-xs font-bold text-cosmic-950 bg-neon-cyan shadow-neon-cyan"
+        class="px-3.5 py-1.5 rounded-lg text-xs font-semibold text-zinc-900 bg-white hover:bg-zinc-200"
       >
         CV PDF
       </a>
@@ -168,7 +165,7 @@ const navItems = [
       });
     }
 
-    // Active link highlighting on scroll with top dot indicator
+    // Active link highlighting on scroll
     const sections = document.querySelectorAll('section[id], div[id="home"], div[id="about"], div[id="projects"]');
     const navLinks = document.querySelectorAll('.nav-link');
 
@@ -181,12 +178,12 @@ const navItems = [
               const href = link.getAttribute('href');
               const dot = link.querySelector('.nav-dot');
               if (href === `#${currentId}`) {
-                link.classList.add('text-neon-cyan', 'font-semibold');
-                link.classList.remove('text-neutral-300');
+                link.classList.add('text-white', 'font-semibold');
+                link.classList.remove('text-zinc-400');
                 if (dot) dot.classList.replace('opacity-0', 'opacity-100');
               } else {
-                link.classList.remove('text-neon-cyan', 'font-semibold');
-                link.classList.add('text-neutral-300');
+                link.classList.remove('text-white', 'font-semibold');
+                link.classList.add('text-zinc-400');
                 if (dot) dot.classList.replace('opacity-100', 'opacity-0');
               }
             });

@@ -2,34 +2,31 @@
 // contact.astro
 ---
 
-<section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
-  <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-cosmic-800 via-cosmic-900 to-cosmic-950 border border-cosmic-border p-8 sm:p-14 text-center text-white shadow-2xl">
+<section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full relative z-10">
+  <div class="rounded-3xl bg-zinc-900/50 border border-zinc-800/80 p-8 sm:p-12 text-center text-white max-w-4xl mx-auto w-full">
     
-    <!-- Background Glows -->
-    <div class="absolute -top-24 -left-24 w-80 h-80 bg-neon-cyan/15 rounded-full blur-3xl pointer-events-none"></div>
-    <div class="absolute -bottom-24 -right-24 w-80 h-80 bg-neon-purple/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-2xl mx-auto">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono mb-4">
+        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+        Hablemos
+      </div>
 
-    <div class="relative max-w-2xl mx-auto">
-      <span class="text-neon-cyan font-bold text-sm tracking-wider uppercase">
-        Get Connected
-      </span>
-
-      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white mt-3 mb-4">
-        ¿Listo para transformar tus datos en una ventaja competitiva?
+      <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight text-white mt-1 mb-4">
+        ¿Tienes un proyecto de Datos o Inteligencia Artificial?
       </h2>
 
-      <p class="text-base sm:text-lg text-neutral-300 mb-8 leading-relaxed">
-        Ya sea para diseñar una arquitectura Lakehouse escalable, entrenar modelos de Machine Learning para producción o implementar agentes de IA / RAG empresarial, estaré encantado de colaborar.
+      <p class="text-sm sm:text-base text-zinc-400 mb-8 leading-relaxed">
+        Ya sea para diseñar una arquitectura de datos escalable, construir pipelines de streaming o integrar soluciones de IA Generativa en producción, estaré encantado de colaborar.
       </p>
 
       <!-- Email Quick Copy and Action Container -->
       <div class="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto mb-8">
-        <div class="w-full flex items-center justify-between px-4 py-3 rounded-full bg-cosmic-950/90 border border-cosmic-border font-mono text-xs sm:text-sm text-neutral-200">
+        <div class="w-full flex items-center justify-between px-4 py-2.5 rounded-xl bg-zinc-950 border border-zinc-800 font-mono text-xs sm:text-sm text-zinc-300">
           <span id="email-text">ferndani2718@gmail.com</span>
           <button
             id="copy-email-btn"
             type="button"
-            class="ml-2 px-4 py-1.5 rounded-full bg-cosmic-card hover:bg-neon-cyan hover:text-cosmic-950 text-neon-cyan font-sans text-xs font-bold transition-all border border-cosmic-border"
+            class="ml-2 px-3 py-1 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-sans text-xs font-medium transition-colors"
           >
             <span id="copy-btn-text">Copiar</span>
           </button>
@@ -37,19 +34,19 @@
 
         <a
           href="mailto:ferndani2718@gmail.com"
-          class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-neon-cyan hover:bg-neon-cyan-hover text-cosmic-950 font-bold text-sm shadow-neon-cyan transition-all transform hover:scale-105 whitespace-nowrap"
+          class="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-white hover:bg-zinc-200 text-zinc-950 font-semibold text-sm transition-colors whitespace-nowrap shadow-sm"
         >
           Enviar Correo
         </a>
       </div>
 
-      <!-- Social Networks Links (FolioX style) -->
-      <div class="flex flex-wrap items-center justify-center gap-4 pt-6 border-t border-cosmic-border">
+      <!-- Social Networks Links -->
+      <div class="flex flex-wrap items-center justify-center gap-3 pt-6 border-t border-zinc-800/80">
         <a
           href="https://www.linkedin.com/in/fernando-quispe-5532901b4/"
           target="_blank"
           rel="noopener noreferrer"
-          class="px-5 py-2.5 rounded-full bg-cosmic-card hover:bg-cosmic-card-hover text-xs font-bold text-neutral-200 hover:text-neon-cyan transition-colors flex items-center gap-2 border border-cosmic-border"
+          class="px-4 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-xs font-medium text-zinc-300 hover:text-white transition-colors flex items-center gap-2 border border-zinc-800"
         >
           <span>LinkedIn</span>
           <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -61,7 +58,7 @@
           href="https://github.com/fdaniel13s"
           target="_blank"
           rel="noopener noreferrer"
-          class="px-5 py-2.5 rounded-full bg-cosmic-card hover:bg-cosmic-card-hover text-xs font-bold text-neutral-200 hover:text-neon-cyan transition-colors flex items-center gap-2 border border-cosmic-border"
+          class="px-4 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-xs font-medium text-zinc-300 hover:text-white transition-colors flex items-center gap-2 border border-zinc-800"
         >
           <span>GitHub</span>
           <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
@@ -73,11 +70,11 @@
           href="https://drive.google.com/file/d/1zpLKsT-llOvlMkJbGSawzjoeXDz0qFOf/view?usp=sharing"
           target="_blank"
           rel="noopener noreferrer"
-          class="px-5 py-2.5 rounded-full bg-cosmic-card hover:bg-cosmic-card-hover text-xs font-bold text-neutral-200 hover:text-neon-cyan transition-colors flex items-center gap-2 border border-cosmic-border"
+          class="px-4 py-2 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-xs font-medium text-zinc-300 hover:text-white transition-colors flex items-center gap-2 border border-zinc-800"
         >
-          <span>Descargar CV (PDF)</span>
-          <svg class="w-3.5 h-3.5 fill-none stroke-current" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+          <span>Descargar CV</span>
+          <svg class="w-3.5 h-3.5 fill-none stroke-current" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
           </svg>
         </a>
       </div>
@@ -97,10 +94,8 @@
         try {
           await navigator.clipboard.writeText(emailStr);
           copyText.textContent = '¡Copiado!';
-          copyBtn.classList.add('bg-neon-cyan', 'text-cosmic-950');
           setTimeout(() => {
             copyText.textContent = 'Copiar';
-            copyBtn.classList.remove('bg-neon-cyan', 'text-cosmic-950');
           }, 2500);
         } catch (err) {
           copyText.textContent = 'ferndani2718@gmail.com';
@@ -112,4 +107,3 @@
   setupContactCopy();
   document.addEventListener('astro:page-load', setupContactCopy);
 </script>
-

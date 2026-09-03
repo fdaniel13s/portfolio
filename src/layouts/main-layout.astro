@@ -1,5 +1,5 @@
 ---
-const { title = "Fernando Quispe | FolioX Data & AI Portfolio" } = Astro.props;
+const { title = "Fernando Quispe | Software Engineer & Data/AI Specialist" } = Astro.props;
 import Header from '../components/header.astro';
 import Hero from '../components/hero.astro';
 import AboutMe from '../components/about-me.astro';
@@ -22,13 +22,13 @@ import Footer from '../components/footer.astro';
     
     <!-- SEO Meta Tags -->
     <title>{title}</title>
-    <meta name="description" content="FolioX - Portafolio profesional de Fernando Quispe. Software Engineer especializado en Data Science, Data Engineering, Lakehouse, Streaming con Kafka/Spark y GenAI / LLMs." />
-    <meta name="keywords" content="Fernando Quispe, FolioX, Data Engineer, Data Science, AI Specialist, Apache Spark, Kafka, Python, PyTorch, LangChain, Lima Peru" />
+    <meta name="description" content="Portafolio profesional de Fernando Quispe (Fernando.dev). Software Engineer especializado en Data Science, Data Engineering, Lakehouse, Streaming con Kafka/Spark y GenAI / LLMs." />
+    <meta name="keywords" content="Fernando Quispe, Fernando.dev, fdaniel13s, Data Engineer, Data Science, AI Specialist, Apache Spark, Kafka, Python, PyTorch, LangChain, Lima Peru" />
     <meta name="author" content="Fernando Daniel Quispe Condori" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Fernando Quispe | FolioX Data & AI Specialist" />
+    <meta property="og:title" content="Fernando Quispe | Software Engineer & Data/AI Specialist" />
     <meta property="og:description" content="Portafolio de proyectos de alto impacto en Data Science, Data Engineering e Inteligencia Artificial." />
     <meta property="og:image" content="/images/fernando-quispe.jpg" />
 
@@ -38,26 +38,22 @@ import Footer from '../components/footer.astro';
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   </head>
 
-  <body class="bg-gradient-to-b from-cosmic-950 via-cosmic-900 to-cosmic-850 text-neutral-100 font-sans min-h-screen flex flex-col antialiased selection:bg-neon-cyan selection:text-cosmic-950 relative overflow-x-hidden">
+  <body class="bg-zinc-950 text-zinc-100 font-sans min-h-screen flex flex-col antialiased selection:bg-cyan-500/20 selection:text-cyan-300 relative overflow-x-hidden">
     
-    <!-- Cosmic Background Glowing Dust & Ambient Light (FolioX exact atmosphere) -->
+    <!-- Subtle Background Ambient Light & Minimal Grid -->
     <div class="fixed inset-0 pointer-events-none z-0">
-      <!-- Top Radial Neon Glow -->
-      <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-gradient-to-b from-neon-cyan/15 via-neon-purple/10 to-transparent rounded-full blur-[120px]"></div>
+      <!-- Soft Top Radial Vignette -->
+      <div class="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[400px] bg-cyan-500/5 rounded-full blur-[140px]"></div>
       
-      <!-- Mid Purple Ambient Glow -->
-      <div class="absolute top-[35%] -left-32 w-[600px] h-[600px] bg-cosmic-border/30 rounded-full blur-[140px]"></div>
-      <div class="absolute top-[65%] -right-32 w-[600px] h-[600px] bg-neon-cyan/10 rounded-full blur-[140px]"></div>
-
-      <!-- Subtle Cosmic Starry Dots / Grid -->
-      <div class="absolute inset-0 bg-[linear-gradient(to_right,#382E8015_1px,transparent_1px),linear-gradient(to_bottom,#382E8015_1px,transparent_1px)] bg-[size:40px_40px] opacity-70"></div>
+      <!-- Minimalist Grid Pattern -->
+      <div class="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:48px_48px] [mask-image:radial-gradient(ellipse_70%_50%_at_50%_0%,#000_60%,transparent_100%)]"></div>
     </div>
 
     <!-- Main Content Container -->
-    <div class="relative z-10 flex flex-col flex-1">
+    <div class="relative z-10 flex flex-col flex-1 w-full">
       <Header />
       
-      <main class="flex-1">
+      <main class="flex-1 w-full">
         <Hero />
         <AboutMe />
         <StatsBanner />
@@ -85,18 +81,18 @@ import Footer from '../components/footer.astro';
     font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
 
-  /* Custom Neon Scrollbar */
+  /* Minimalist Zinc Scrollbar */
   ::-webkit-scrollbar {
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    background: #0B0826;
+    background: #09090b;
   }
   ::-webkit-scrollbar-thumb {
-    background: #392C87;
+    background: #27272a;
     border-radius: 9999px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #00D2FF;
+    background: #3f3f46;
   }
 </style>

@@ -7,7 +7,7 @@ const stages = [
     icon: "⚡",
     desc: "Captura de eventos en tiempo real y micro-batches de múltiples fuentes (APIs, DBs, IoT, archivos).",
     techs: ["Apache Kafka", "AWS S3", "FastAPI", "CDC"],
-    badge: "Ingestion Layer"
+    badge: "Ingestion"
   },
   {
     step: "02",
@@ -15,7 +15,7 @@ const stages = [
     icon: "🏛️",
     desc: "Almacenamiento estructurado en capas Bronze (Raw), Silver (Clean/Enriched) y Gold (Business-Ready).",
     techs: ["Delta Lake", "DuckDB", "PostgreSQL", "Parquet"],
-    badge: "Storage Layer"
+    badge: "Storage"
   },
   {
     step: "03",
@@ -23,7 +23,7 @@ const stages = [
     icon: "⚙️",
     desc: "Orquestación de pipelines con validación automatizada de esquemas, linaje y pruebas unitarias de datos.",
     techs: ["Apache Spark", "dbt Core", "Apache Airflow", "Great Expectations"],
-    badge: "Processing Layer"
+    badge: "Processing"
   },
   {
     step: "04",
@@ -31,7 +31,7 @@ const stages = [
     icon: "🧠",
     desc: "Entrenamiento de modelos predictivos, pipelines RAG con bases vectoriales y registro de modelos en MLflow.",
     techs: ["PyTorch / Scikit-Learn", "LangChain / Qdrant", "MLflow", "SHAP"],
-    badge: "Intelligence Layer"
+    badge: "Intelligence"
   },
   {
     step: "05",
@@ -39,59 +39,60 @@ const stages = [
     icon: "📊",
     desc: "Despliegue de endpoints de baja latencia (<150ms), microservicios contenerizados y dashboards analíticos.",
     techs: ["FastAPI", "Docker", "Streamlit", "Power BI"],
-    badge: "Serving Layer"
+    badge: "Serving"
   }
 ];
 ---
 
-<section id="architecture" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+<section id="architecture" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full relative z-10">
   
-  <div class="text-center max-w-3xl mx-auto mb-16">
-    <span class="text-neon-cyan font-bold text-sm tracking-wider uppercase">
-      End-to-End Flow
-    </span>
-    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-3 tracking-tight">
+  <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono mb-4">
+      <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+      Flujo End-to-End
+    </div>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
       Arquitectura de Datos & Ciclo de IA
     </h2>
-    <p class="mt-4 text-base text-neutral-300">
-      Cómo estructuro soluciones de datos resilientes desde la captura hasta el impacto en negocio, combinando ingeniería de datos, modelos de ML y GenAI.
+    <p class="mt-3 text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto">
+      Cómo estructuro soluciones de datos resilientes desde la captura hasta el valor de negocio, uniendo ingeniería de datos, modelos de ML y aplicaciones de GenAI.
     </p>
   </div>
 
   <!-- Interactive Grid Flow -->
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 relative">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
     {stages.map((stage) => (
-      <div class="p-8 rounded-3xl bg-cosmic-card/85 backdrop-blur-md border border-cosmic-border hover:border-neon-cyan/50 hover:bg-cosmic-card-hover transition-all duration-300 shadow-cosmic-card flex flex-col justify-between group">
+      <div class="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800/80 hover:border-zinc-700 transition-colors flex flex-col justify-between group">
         
         <div>
           <!-- Header Card -->
-          <div class="flex items-center justify-between mb-5">
-            <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-cosmic-900/90 text-neon-cyan border border-cosmic-border">
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs font-mono font-medium px-2.5 py-0.5 rounded-md bg-zinc-800 text-cyan-400 border border-zinc-700/60">
               {stage.badge}
             </span>
-            <span class="text-xl font-black font-mono text-neon-cyan">
+            <span class="text-sm font-bold font-mono text-zinc-500">
               {stage.step}
             </span>
           </div>
 
-          <!-- Icon & Title -->
-          <div class="flex items-center gap-3 mb-3">
-            <span class="text-2xl">{stage.icon}</span>
-            <h3 class="text-lg font-bold text-white group-hover:text-neon-cyan transition-colors">
+          <!-- Title -->
+          <div class="flex items-center gap-2.5 mb-2.5">
+            <span class="text-lg">{stage.icon}</span>
+            <h3 class="text-base font-bold text-white group-hover:text-cyan-400 transition-colors">
               {stage.title}
             </h3>
           </div>
 
           <!-- Description -->
-          <p class="text-sm text-neutral-300 leading-relaxed mb-6">
+          <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed mb-5">
             {stage.desc}
           </p>
         </div>
 
         <!-- Tech Badges -->
-        <div class="pt-4 border-t border-cosmic-border flex flex-wrap gap-1.5">
+        <div class="pt-3 border-t border-zinc-800/70 flex flex-wrap gap-1.5">
           {stage.techs.map((tech) => (
-            <span class="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-cosmic-900 text-neutral-200 border border-cosmic-border/60">
+            <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-800/70 text-zinc-300 border border-zinc-700/40">
               {tech}
             </span>
           ))}
@@ -100,23 +101,22 @@ const stages = [
     ))}
 
     <!-- High-Impact Value Box -->
-    <div class="p-8 rounded-3xl bg-gradient-to-br from-cosmic-800 to-cosmic-950 border border-neon-cyan/30 text-white shadow-2xl flex flex-col justify-between overflow-hidden relative group">
-      <div class="absolute -right-8 -bottom-8 w-40 h-40 bg-neon-cyan/15 rounded-full blur-2xl pointer-events-none"></div>
+    <div class="p-6 rounded-2xl bg-zinc-900/80 border border-zinc-700/70 text-white flex flex-col justify-between">
       <div>
-        <span class="text-xs font-mono font-bold px-3 py-1 rounded-full bg-neon-cyan/20 text-neon-cyan border border-neon-cyan/40">
-          Core Engineering Principles
+        <span class="text-xs font-mono font-semibold px-2.5 py-0.5 rounded-md bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+          Principios de Ingeniería
         </span>
-        <h3 class="text-xl font-bold mt-5 mb-3 text-white">
+        <h3 class="text-base font-bold mt-4 mb-2 text-white">
           Garantía de Calidad & Escalabilidad
         </h3>
-        <p class="text-sm text-neutral-300 leading-relaxed">
-          Diseño arquitecturas desacopladas orientadas a eventos, reproducibilidad con DVC/Git, observabilidad integral y monitoreo de <i>data drift</i> en producción.
+        <p class="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+          Diseño arquitecturas desacopladas orientadas a eventos, pruebas automatizadas de datos con Great Expectations, versionado con Git y monitoreo constante en producción.
         </p>
       </div>
       
-      <div class="pt-5 mt-5 border-t border-cosmic-border flex items-center justify-between text-xs text-neon-cyan font-mono">
+      <div class="pt-4 mt-4 border-t border-zinc-800 flex items-center justify-between text-xs text-zinc-400 font-mono">
         <span>CI/CD + DataOps</span>
-        <span>Zero Data Loss</span>
+        <span class="text-cyan-400">Zero Data Loss</span>
       </div>
     </div>
   </div>

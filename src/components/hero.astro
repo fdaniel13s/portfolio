@@ -1,128 +1,78 @@
 ---
-// hero.astro
+// src/components/hero.astro
 ---
 
-<section id="home" class="relative pt-32 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
+<section id="home" class="relative pt-28 sm:pt-36 pb-16 sm:pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
   
-  <!-- Cosmic Background Glows & Orbital Rings -->
-  <div class="absolute top-20 right-10 w-96 h-96 bg-neon-cyan/10 rounded-full blur-3xl pointer-events-none"></div>
-  <div class="absolute top-40 left-10 w-80 h-80 bg-cosmic-border/30 rounded-full blur-3xl pointer-events-none"></div>
-  
-  <!-- Subtle Orbital Ring Lines -->
-  <div class="absolute -top-10 right-20 w-[500px] h-[500px] rounded-full border border-cosmic-border/20 pointer-events-none -rotate-12"></div>
-  <div class="absolute top-10 right-10 w-[650px] h-[650px] rounded-full border border-cosmic-border/15 pointer-events-none rotate-45"></div>
-
-  <!-- Hero Main Grid: Left Text + Right Big Circular Avatar -->
-  <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[460px]">
+  <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
     
-    <!-- Left Column: Name & Call to Action (7 cols) -->
-    <div class="lg:col-span-7 text-center lg:text-left z-10">
+    <!-- Left Column: Name, Role & Call to Action (7 cols) -->
+    <div class="order-2 lg:order-1 lg:col-span-7 text-center lg:text-left flex flex-col items-center lg:items-start z-10 w-full">
       
-      <!-- Big Two-Line Title (FolioX exact style) -->
-      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.08]">
-        Fernando<br />
-        <span class="text-neon-cyan font-black">Quispe</span>
+      <!-- Status Badge -->
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-zinc-900/90 border border-zinc-800 text-xs text-zinc-300 font-mono mb-6">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <span>Disponible para nuevos retos en Data & AI</span>
+      </div>
+
+      <!-- Main Name -->
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+        Fernando <span class="text-cyan-400">Quispe</span>
       </h1>
 
-      <!-- Subtitle -->
-      <p class="mt-5 text-lg sm:text-xl font-medium text-neutral-300">
-        Software Engineer & Data/AI Specialist based in Lima, Peru
+      <!-- Professional Subtitle -->
+      <p class="mt-3 text-lg sm:text-xl font-medium text-zinc-300">
+        Software Engineer &bull; Data & AI Specialist
       </p>
 
-      <!-- Pill Button "Get Connected" (FolioX exact style) -->
-      <div class="mt-8 flex justify-center lg:justify-start">
+      <!-- Concise Professional Bio -->
+      <p class="mt-4 text-sm sm:text-base text-zinc-400 max-w-xl leading-relaxed text-center lg:text-left">
+        Especializado en el diseño y despliegue de arquitecturas de datos escalables, pipelines de streaming en tiempo real (Kafka & Spark) y sistemas de Inteligencia Artificial Generativa para entornos de producción.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 w-full sm:w-auto">
+        <a
+          href="#projects"
+          class="inline-flex items-center justify-center px-6 py-3 rounded-xl font-semibold text-sm text-zinc-950 bg-white hover:bg-zinc-200 transition-all shadow-sm"
+        >
+          Ver Proyectos
+        </a>
+        <a
+          href="https://drive.google.com/file/d/1zpLKsT-llOvlMkJbGSawzjoeXDz0qFOf/view?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-sm text-zinc-300 bg-zinc-900/80 hover:bg-zinc-800 border border-zinc-800 hover:text-white transition-all"
+        >
+          <span>Descargar CV</span>
+          <svg class="w-4 h-4 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+        </a>
         <a
           href="#contact"
-          class="inline-flex items-center justify-center px-8 py-3.5 rounded-full font-bold text-sm text-cosmic-950 bg-neon-cyan hover:bg-neon-cyan-hover shadow-neon-cyan transition-all transform hover:scale-105 hover:-translate-y-0.5"
+          class="inline-flex items-center justify-center px-5 py-3 rounded-xl font-medium text-sm text-zinc-400 hover:text-cyan-400 transition-colors"
         >
-          Get Connected
+          Contacto &rarr;
         </a>
       </div>
 
     </div>
 
-    <!-- Right Column: Big Circular Avatar in Blue Backdrop (FolioX exact style) (5 cols) -->
-    <div class="lg:col-span-5 flex justify-center items-center relative z-10">
-      
-      <!-- Outer Orbit Rings Behind Avatar -->
-      <div class="absolute w-[360px] h-[360px] sm:w-[440px] sm:h-[440px] rounded-full border border-neon-cyan/20 animate-orbit-slow pointer-events-none">
-        <!-- Floating Planet / Orb on the Orbit -->
-        <div class="absolute top-6 left-12 w-3.5 h-3.5 rounded-full bg-neon-cyan shadow-neon-cyan"></div>
-        <div class="absolute bottom-10 right-16 w-2.5 h-2.5 rounded-full bg-neon-purple shadow-neon-purple"></div>
-      </div>
-
-      <!-- Main Glowing Circle Container -->
-      <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-gradient-to-tr from-[#0080FF] via-[#00B4FF] to-[#00F0FF] p-1.5 shadow-[0_0_50px_rgba(0,180,255,0.4)] flex items-center justify-center">
-        
-        <!-- Inner Circular Photo -->
-        <div class="w-full h-full rounded-full overflow-hidden bg-cosmic-900 border-2 border-white/20">
+    <!-- Right Column: Clean, Elegant Avatar (5 cols) -->
+    <div class="order-1 lg:order-2 lg:col-span-5 flex justify-center items-center relative z-10 w-full">
+      <div class="relative w-52 h-52 sm:w-64 sm:h-64 lg:w-72 lg:h-72 rounded-2xl p-2 bg-gradient-to-b from-zinc-800/60 to-zinc-900/40 border border-zinc-800 shadow-xl mx-auto">
+        <div class="w-full h-full rounded-xl overflow-hidden bg-zinc-950">
           <img
-            src="/images/fernando-quispe.jpg"
+            src="/images/me.png"
             alt="Fernando Quispe"
             class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
             loading="eager"
           />
         </div>
-
       </div>
-
-    </div>
-
-  </div>
-
-  <!-- 3 Feature / Value Cards (Directly below Hero, matching FolioX reference) -->
-  <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6 relative z-10">
-    
-    <!-- Card 1: Deeper Skillset -->
-    <div class="p-8 rounded-3xl bg-cosmic-card/85 backdrop-blur-md border border-cosmic-border/80 hover:border-neon-cyan/50 hover:bg-cosmic-card-hover transition-all duration-300 shadow-cosmic-card group">
-      <div class="w-12 h-12 rounded-2xl bg-cosmic-900/80 border border-cosmic-border flex items-center justify-center text-neon-cyan mb-6 group-hover:scale-110 group-hover:border-neon-cyan/50 transition-all">
-        <!-- Gear / Settings Icon -->
-        <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
-          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-        </svg>
-      </div>
-      <h3 class="text-xl font-bold text-white mb-2.5 group-hover:text-neon-cyan transition-colors">
-        Deeper Skillset
-      </h3>
-      <p class="text-sm text-neutral-300 leading-relaxed">
-        Diseño de arquitecturas Lakehouse escalables, streaming con Apache Kafka y PySpark, orquestación con Airflow y modelado con dbt Core.
-      </p>
-    </div>
-
-    <!-- Card 2: Creative Work -->
-    <div class="p-8 rounded-3xl bg-cosmic-card/85 backdrop-blur-md border border-cosmic-border/80 hover:border-neon-cyan/50 hover:bg-cosmic-card-hover transition-all duration-300 shadow-cosmic-card group">
-      <div class="w-12 h-12 rounded-2xl bg-cosmic-900/80 border border-cosmic-border flex items-center justify-center text-neon-cyan mb-6 group-hover:scale-110 group-hover:border-neon-cyan/50 transition-all">
-        <!-- Briefcase / Code Icon -->
-        <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-        </svg>
-      </div>
-      <h3 class="text-xl font-bold text-white mb-2.5 group-hover:text-neon-cyan transition-colors">
-        Creative Work
-      </h3>
-      <p class="text-sm text-neutral-300 leading-relaxed">
-        Desarrollo de sistemas RAG empresariales multimodales, agentes de IA, búsqueda semántica con bases de datos vectoriales y visión artificial con PyTorch.
-      </p>
-    </div>
-
-    <!-- Card 3: Strong Dedication -->
-    <div class="p-8 rounded-3xl bg-cosmic-card/85 backdrop-blur-md border border-cosmic-border/80 hover:border-neon-cyan/50 hover:bg-cosmic-card-hover transition-all duration-300 shadow-cosmic-card group">
-      <div class="w-12 h-12 rounded-2xl bg-cosmic-900/80 border border-cosmic-border flex items-center justify-center text-neon-cyan mb-6 group-hover:scale-110 group-hover:border-neon-cyan/50 transition-all">
-        <!-- Diamond / Gem Icon -->
-        <svg class="w-6 h-6 stroke-current fill-none" viewBox="0 0 24 24" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-        </svg>
-      </div>
-      <h3 class="text-xl font-bold text-white mb-2.5 group-hover:text-neon-cyan transition-colors">
-        Strong Dedication
-      </h3>
-      <p class="text-sm text-neutral-300 leading-relaxed">
-        Rigurosidad en ingeniería de software, Clean Architecture, principios SOLID, pruebas continuas de calidad de datos y ciclos de vida MLOps robustos.
-      </p>
     </div>
 
   </div>
 
 </section>
-

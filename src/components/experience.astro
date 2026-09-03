@@ -39,59 +39,61 @@ const experiences = [
 ];
 ---
 
-<section id="experience" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto relative z-10">
+<section id="experience" class="py-20 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full relative z-10">
   
-  <div class="text-center max-w-3xl mx-auto mb-16">
-    <span class="text-neon-cyan font-bold text-sm tracking-wider uppercase">
-      Experience
-    </span>
-    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mt-3 tracking-tight">
+  <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono mb-4">
+      <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+      Trayectoria
+    </div>
+    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
       Experiencia & Formación Académica
     </h2>
-    <p class="mt-4 text-base text-neutral-300">
+    <p class="mt-3 text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto">
       Una base sólida de Ingeniería de Software aplicada a la resolución de problemas complejos en el ecosistema de Datos e Inteligencia Artificial.
     </p>
   </div>
 
-  <div class="relative border-l-2 border-cosmic-border ml-4 md:ml-24 space-y-12">
+  <div class="max-w-3xl mx-auto w-full">
+    <div class="relative border-l border-zinc-800 ml-4 sm:ml-6 space-y-10">
     {experiences.map((item) => (
-      <div class="relative pl-8 sm:pl-10 group">
-        <!-- Timeline Marker Point (Neon Cyan) -->
-        <div class="absolute -left-[9px] top-2 w-4 h-4 rounded-full bg-cosmic-950 border-2 border-neon-cyan group-hover:scale-125 group-hover:bg-neon-cyan transition-all duration-200 shadow-neon-cyan"></div>
+      <div class="relative pl-6 sm:pl-8 group">
+        <!-- Marker Point -->
+        <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-950 border-2 border-cyan-400 group-hover:scale-125 transition-transform"></div>
 
-        <div class="p-8 rounded-3xl bg-cosmic-card/85 backdrop-blur-md border border-cosmic-border hover:border-neon-cyan/50 hover:bg-cosmic-card-hover transition-all duration-300 shadow-cosmic-card">
+        <div class="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800/80 hover:border-zinc-700 transition-colors">
           
           <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-            <span class="text-xs font-mono font-bold text-neon-cyan bg-cosmic-900 px-3.5 py-1 rounded-full border border-cosmic-border self-start">
+            <span class="text-xs font-mono font-medium text-cyan-400 bg-zinc-800 px-2.5 py-0.5 rounded-md self-start">
               {item.period}
             </span>
-            <span class="text-xs text-neutral-400 font-medium">
+            <span class="text-xs text-zinc-400 font-medium">
               {item.organization}
             </span>
           </div>
 
-          <h3 class="text-2xl font-bold text-white mt-3 group-hover:text-neon-cyan transition-colors">
+          <h3 class="text-lg font-bold text-white mt-2">
             {item.role}
           </h3>
 
-          <p class="text-sm text-neutral-300 mt-2 leading-relaxed">
+          <p class="text-sm text-zinc-400 mt-2 leading-relaxed">
             {item.description}
           </p>
 
-          <!-- Key Highlights / Achievements -->
-          <div class="mt-4 space-y-2">
+          <!-- Achievements -->
+          <ul class="mt-4 space-y-1.5 text-xs sm:text-sm text-zinc-300">
             {item.achievements.map((ach) => (
-              <div class="flex items-start gap-2.5 text-xs sm:text-sm text-neutral-300">
-                <span class="text-neon-cyan font-bold">✓</span>
+              <li class="flex items-start gap-2">
+                <span class="text-cyan-400 mt-0.5">&bull;</span>
                 <span>{ach}</span>
-              </div>
+              </li>
             ))}
-          </div>
+          </ul>
 
-          <!-- Technologies used in this stage -->
-          <div class="mt-6 pt-4 border-t border-cosmic-border flex flex-wrap gap-1.5">
+          <!-- Tags -->
+          <div class="mt-5 pt-4 border-t border-zinc-800/70 flex flex-wrap gap-1.5">
             {item.skills.map((skill) => (
-              <span class="text-[11px] font-mono px-2.5 py-1 rounded-lg bg-cosmic-900 text-neutral-200 border border-cosmic-border">
+              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-800/70 text-zinc-300 border border-zinc-700/40">
                 {skill}
               </span>
             ))}
@@ -100,5 +102,6 @@ const experiences = [
         </div>
       </div>
     ))}
+    </div>
   </div>
 </section>

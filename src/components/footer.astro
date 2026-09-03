@@ -1,44 +1,43 @@
 ---
-// footer.astro
+// src/components/footer.astro
 ---
 
-<footer class="mt-20 border-t border-cosmic-border bg-cosmic-950/80 backdrop-blur-md py-12 px-4 sm:px-6 lg:px-8 relative z-10">
+<footer class="mt-20 border-t border-zinc-800/80 bg-zinc-950 py-12 px-4 sm:px-6 lg:px-8 relative z-10">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
     
     <!-- Brand -->
     <div class="flex items-center gap-2.5">
-      <div class="w-7 h-7 rounded-lg bg-gradient-to-tr from-neon-cyan to-neon-blue flex items-center justify-center text-cosmic-950 font-black text-xs shadow-neon-cyan">
+      <div class="w-7 h-7 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center text-cyan-400 font-bold text-xs font-mono">
         FQ
       </div>
       <div>
-        <span class="font-extrabold text-white text-lg">
-          Folio<span class="text-neon-cyan">X</span>
+        <span class="font-bold text-white text-base">
+          Fernando<span class="text-cyan-400">.dev</span>
         </span>
-        <span class="text-xs text-neutral-400 block font-mono">
-          Fernando Quispe • Data & AI Engineer
+        <span class="text-xs text-zinc-400 block font-mono">
+          Fernando Quispe &bull; Data & AI Engineer
         </span>
       </div>
     </div>
 
     <!-- Quick Navigation Links -->
-    <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-semibold text-neutral-300">
-      <a href="#home" class="hover:text-neon-cyan transition-colors">Home</a>
-      <a href="#about" class="hover:text-neon-cyan transition-colors">About</a>
-      <a href="#architecture" class="hover:text-neon-cyan transition-colors">Service</a>
-      <a href="#projects" class="hover:text-neon-cyan transition-colors">Portfolio</a>
-      <a href="#skills" class="hover:text-neon-cyan transition-colors">Skills</a>
-      <a href="#experience" class="hover:text-neon-cyan transition-colors">Experience</a>
-      <a href="#contact" class="hover:text-neon-cyan transition-colors">Contact</a>
+    <div class="flex flex-wrap items-center justify-center gap-6 text-xs font-medium text-zinc-400">
+      <a href="#home" class="hover:text-white transition-colors">Inicio</a>
+      <a href="#about" class="hover:text-white transition-colors">Sobre mí</a>
+      <a href="#architecture" class="hover:text-white transition-colors">Arquitectura</a>
+      <a href="#projects" class="hover:text-white transition-colors">Proyectos</a>
+      <a href="#skills" class="hover:text-white transition-colors">Habilidades</a>
+      <a href="#experience" class="hover:text-white transition-colors">Experiencia</a>
+      <a href="#contact" class="hover:text-white transition-colors">Contacto</a>
     </div>
 
     <!-- Copyright -->
-    <div class="text-xs text-neutral-400 text-center md:text-right font-mono">
-      <p>© {new Date().getFullYear()} Fernando Daniel Quispe Condori.</p>
-      <p class="text-[11px] text-neutral-500 mt-0.5">
-        Designed with Astro & FolioX Theme
+    <div class="text-xs text-zinc-400 text-center md:text-right font-mono">
+      <p>© {new Date().getFullYear()} Fernando Quispe Condori.</p>
+      <p class="text-[11px] text-zinc-400 mt-0.5">
+        Desarrollado con Astro & Tailwind CSS
       </p>
     </div>
 
   </div>
 </footer>
-
