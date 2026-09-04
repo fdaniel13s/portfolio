@@ -1,77 +1,89 @@
 ---
 // src/components/skills.astro
+
 const skillCategories = [
+  {
+    id: "core",
+    name: "Core Foundations",
+    icon: "💻",
+    description: "Bases sólidas de ingeniería de software, modelado de datos y desarrollo de APIs.",
+    skills: [
+      { name: "Python", tag: "Lenguaje Principal", status: "Proyectos & Experiencia" },
+      { name: "SQL", tag: "Consultas Avanzadas & DML/DDL", status: "Experiencia Práctica" },
+      { name: "Software Engineering", tag: "Clean Code, POO, DDD", status: "Formación & Práctica" },
+      { name: "Data Modeling", tag: "Relacional & Dimensional", status: "Experiencia Práctica" },
+      { name: "RESTful APIs", tag: "FastAPI, Spring Boot, .NET", status: "Proyectos Reales" },
+      { name: "Git & GitHub", tag: "Control de Versiones & CI", status: "Uso Diario" },
+    ]
+  },
   {
     id: "data-eng",
     name: "Data Engineering",
     icon: "⚡",
-    description: "Diseño de pipelines ETL/ELT, streaming en tiempo real y arquitecturas Lakehouse.",
+    description: "Tecnologías utilizadas en el diseño e implementación de pipelines de datos y Lakehouse.",
     skills: [
-      { name: "Apache Spark / PySpark", level: "Avanzado", tag: "Big Data" },
-      { name: "Apache Kafka", level: "Avanzado", tag: "Streaming" },
-      { name: "Apache Airflow", level: "Intermedio+", tag: "Orquestación" },
-      { name: "dbt (Data Build Tool)", level: "Avanzado", tag: "Transformación" },
-      { name: "PostgreSQL / MySQL / DuckDB", level: "Avanzado", tag: "Bases de Datos" },
-      { name: "Delta Lake / Medallion Arch", level: "Avanzado", tag: "Lakehouse" },
-      { name: "Modelado Dimensional", level: "Avanzado", tag: "Data Modeling" },
-      { name: "Docker & Contenedores", level: "Avanzado", tag: "Infraestructura" },
+      { name: "Apache Spark / PySpark", tag: "Procesamiento Distribuido", status: "Proyectos & Práctica" },
+      { name: "Apache Kafka", tag: "Streaming & Ingesta de Eventos", status: "Arquitecturas & Demos" },
+      { name: "Apache Airflow", tag: "Orquestación de Pipelines", status: "Proyectos & DAGs" },
+      { name: "dbt Core", tag: "Transformación SQL & Pruebas", status: "Proyectos & Modelado" },
+      { name: "Delta Lake", tag: "Capas Medallion (Lakehouse)", status: "Diseño & Práctica" },
+      { name: "PostgreSQL & DuckDB", tag: "Bases OLTP & OLAP Embebido", status: "Uso Extensivo" },
     ]
   },
   {
-    id: "data-science",
-    name: "Data Science & ML",
+    id: "analytics",
+    name: "Data & Analytics",
     icon: "📊",
-    description: "Modelos predictivos, aprendizaje supervisado/no supervisado y análisis estadístico.",
+    description: "Herramientas y metodologías aplicadas en proyectos reales y experiencia con datos.",
     skills: [
-      { name: "Python (NumPy, Pandas, SciPy)", level: "Avanzado", tag: "Core Data" },
-      { name: "Scikit-Learn", level: "Avanzado", tag: "Machine Learning" },
-      { name: "XGBoost & LightGBM", level: "Avanzado", tag: "Gradient Boosting" },
-      { name: "PyTorch & Deep Learning", level: "Intermedio+", tag: "Redes Neuronales" },
-      { name: "Series Temporales & Stats", level: "Intermedio+", tag: "Estadística" },
-      { name: "SHAP & Explicabilidad ML", level: "Avanzado", tag: "Interpretability" },
-      { name: "Feature Engineering", level: "Avanzado", tag: "Data Prep" },
-      { name: "A/B Testing & Inferencia", level: "Intermedio+", tag: "Experimentación" },
+      { name: "SQL Server", tag: "Procedimientos & Consultas", status: "Experiencia Práctica" },
+      { name: "Power BI", tag: "Modelado DAX & Dashboards", status: "Experiencia Práctica" },
+      { name: "Pipelines ETL / ELT", tag: "Extracción, Limpieza & Carga", status: "Experiencia Práctica" },
+      { name: "Data Warehousing", tag: "Esquemas Estrella & Copo de Nieve", status: "Experiencia Práctica" },
+      { name: "Validación de Datos", tag: "Control de Calidad & Reglas", status: "Experiencia Práctica" },
+      { name: "Automatización de Procesos", tag: "Reducción de Tareas Manuales", status: "Experiencia Práctica" },
     ]
   },
   {
-    id: "gen-ai",
-    name: "GenAI & LLMs",
-    icon: "🤖",
-    description: "Sistemas RAG multimodales, agentes autónomos y bases de datos vectoriales.",
+    id: "ai-ml",
+    name: "AI & Machine Learning",
+    icon: "🧠",
+    description: "Modelos predictivos, visión artificial y sistemas de lenguaje respaldados por proyectos.",
     skills: [
-      { name: "LangChain & LlamaIndex", level: "Avanzado", tag: "Frameworks LLM" },
-      { name: "Vector DBs (Qdrant, Chroma)", level: "Avanzado", tag: "Embeddings" },
-      { name: "RAG Híbrido & Reranking", level: "Avanzado", tag: "Search" },
-      { name: "OpenAI & HuggingFace APIs", level: "Avanzado", tag: "Modelos" },
-      { name: "Prompt Engineering", level: "Avanzado", tag: "Técnicas" },
-      { name: "Computer Vision (YOLOv8)", level: "Intermedio+", tag: "Visión" },
+      { name: "Machine Learning (Scikit-Learn)", tag: "Clasificación & Regresión", status: "Proyectos Aplicados" },
+      { name: "Gradient Boosting (XGBoost / CatBoost)", tag: "Datos Tabulares & Churn", status: "Proyectos Aplicados" },
+      { name: "Computer Vision (YOLOv8)", tag: "Detección de Objetos", status: "Prototipo Agrícola" },
+      { name: "RAG & Vector DBs (Qdrant)", tag: "Búsqueda Semántica", status: "Prototipo DocuMind" },
+      { name: "Explicabilidad (SHAP)", tag: "Interpretabilidad de Modelos", status: "Proyectos Aplicados" },
+      { name: "PyTorch", tag: "Fundamentos de Deep Learning", status: "Proyectos & Formación" },
     ]
   },
   {
-    id: "mlops-cloud",
-    name: "MLOps & Cloud",
-    icon: "🔄",
-    description: "Gobernanza, reproducibilidad, monitoreo y despliegue continuo de modelos y datos.",
+    id: "cloud-devops",
+    name: "Cloud & DevOps",
+    icon: "☁️",
+    description: "Contenedores, plataformas en la nube y automatización de despliegues.",
     skills: [
-      { name: "MLflow (Model Registry)", level: "Avanzado", tag: "ML Lifecycle" },
-      { name: "Great Expectations", level: "Avanzado", tag: "Data Quality" },
-      { name: "AWS (S3, Lambda, EC2)", level: "Intermedio+", tag: "Cloud" },
-      { name: "GitHub Actions CI/CD", level: "Avanzado", tag: "Automatización" },
-      { name: "DVC (Data Version Control)", level: "Intermedio+", tag: "Versionado" },
-      { name: "Linux & Bash Scripting", level: "Avanzado", tag: "Sistemas" },
+      { name: "Docker & Contenedores", tag: "Contenedorización de Servicios", status: "Proyectos Reales" },
+      { name: "Microsoft Azure", tag: "Data & Cloud Fundamentals", status: "Experiencia Práctica" },
+      { name: "Snowflake", tag: "Data Cloud & Consultas", status: "Experiencia & Práctica" },
+      { name: "AWS (S3, EC2)", tag: "Almacenamiento & Cómputo Básico", status: "Uso en Proyectos" },
+      { name: "Linux & Bash", tag: "Línea de Comandos & Shell", status: "Uso Frecuente" },
+      { name: "GitHub Actions", tag: "Pipelines CI/CD Básicos", status: "Automatización" },
     ]
   },
   {
-    id: "software-eng",
-    name: "Software & APIs",
-    icon: "💻",
-    description: "Arquitectura de microservicios, APIs de alto rendimiento y clean code.",
+    id: "exploring",
+    name: "Currently Learning",
+    icon: "🚀",
+    description: "Tecnologías y conceptos en exploración y aprendizaje activo que no presento como dominio señor.",
     skills: [
-      { name: "FastAPI & Pydantic", level: "Avanzado", tag: "APIs de Datos" },
-      { name: "Java & Spring Boot", level: "Avanzado", tag: "Backend Enterprise" },
-      { name: "C# & .NET Core", level: "Avanzado", tag: "Backend" },
-      { name: "Kotlin Jetpack Compose", level: "Avanzado", tag: "Mobile" },
-      { name: "Clean Architecture & DDD", level: "Avanzado", tag: "Arquitectura" },
+      { name: "AI Agents & Tool Use", tag: "Agentes Autónomos", status: "Aprendizaje Activo" },
+      { name: "Model Context Protocol (MCP)", tag: "Protocolos de Integración", status: "Aprendizaje Activo" },
+      { name: "Agent Orchestration", tag: "LangGraph / Flujos Multi-Paso", status: "Aprendizaje Activo" },
+      { name: "Advanced RAG Patterns", tag: "Re-ranking & Chunking Avanzado", status: "Aprendizaje Activo" },
+      { name: "MLOps Lifecycle", tag: "MLflow / Registro de Modelos", status: "Aprendizaje Activo" },
+      { name: "Data Contracts", tag: "Gobernanza de Datos", status: "Aprendizaje Activo" },
     ]
   }
 ];
@@ -82,25 +94,25 @@ const skillCategories = [
   <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono mb-4">
       <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-      Ecosistema Técnico
+      Stack Tecnológico
     </div>
     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-      Habilidades & Especialización
+      Habilidades & Ecosistema Técnico
     </h2>
     <p class="mt-3 text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto">
-      Herramientas, frameworks y metodologías para diseñar soluciones de datos robustas, mantenibles y de alto rendimiento.
+      Organizado de forma transparente por áreas de aplicación, diferenciando tecnologías de experiencia real, proyectos construidos y áreas en aprendizaje activo.
     </p>
   </div>
 
   <!-- Skill Category Tabs -->
-  <div class="flex flex-wrap justify-center items-center gap-2 sm:gap-3 mb-10 mx-auto" id="skills-tabs">
+  <div class="flex flex-wrap justify-center items-center gap-2 sm:gap-2.5 mb-10 mx-auto" id="skills-tabs">
     {skillCategories.map((cat, index) => (
       <button
         type="button"
         data-category={cat.id}
-        class={`skill-tab-btn px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
+        class={`skill-tab-btn px-3.5 sm:px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-200 flex items-center gap-2 ${
           index === 0
-            ? "bg-zinc-100 text-zinc-900 font-semibold shadow-sm active"
+            ? "bg-white text-zinc-950 font-semibold shadow-sm active"
             : "bg-zinc-900/80 text-zinc-400 border border-zinc-800 hover:text-zinc-200 hover:border-zinc-700"
         }`}
       >
@@ -130,22 +142,25 @@ const skillCategories = [
               </p>
             </div>
             <span class="text-xs font-mono text-cyan-400 bg-zinc-800 px-3 py-1 rounded-md border border-zinc-700/60 self-start sm:self-auto">
-              {cat.skills.length} Tecnologías
+              {cat.skills.length} Tecnologías / Áreas
             </span>
           </div>
 
           <!-- Skills Grid -->
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5">
             {cat.skills.map((skill) => (
               <div class="p-4 rounded-xl bg-zinc-950/70 border border-zinc-800/80 hover:border-zinc-700 transition-colors flex flex-col justify-between group">
                 <div class="mb-3">
-                  <span class="text-sm font-semibold text-zinc-200 group-hover:text-white transition-colors">
+                  <h4 class="text-sm font-semibold text-zinc-200 group-hover:text-cyan-400 transition-colors">
                     {skill.name}
+                  </h4>
+                  <span class="text-xs text-zinc-400 mt-0.5 block">
+                    {skill.tag}
                   </span>
                 </div>
-                <div class="flex items-center justify-between pt-2.5 border-t border-zinc-800/60 text-xs font-mono">
-                  <span class="text-zinc-400">{skill.tag}</span>
-                  <span class="text-cyan-400 font-medium">{skill.level}</span>
+                <div class="flex items-center justify-between pt-2.5 border-t border-zinc-800/60 text-[11px] font-mono">
+                  <span class="text-zinc-500">Contexto:</span>
+                  <span class="text-cyan-400/90 font-medium">{skill.status}</span>
                 </div>
               </div>
             ))}
@@ -168,13 +183,13 @@ const skillCategories = [
 
         // Reset all tabs
         tabs.forEach(t => {
-          t.classList.remove('bg-zinc-100', 'text-zinc-900', 'font-semibold', 'shadow-sm', 'active');
+          t.classList.remove('bg-white', 'text-zinc-950', 'font-semibold', 'shadow-sm', 'active');
           t.classList.add('bg-zinc-900/80', 'text-zinc-400', 'border', 'border-zinc-800');
         });
 
         // Activate clicked tab
         tab.classList.remove('bg-zinc-900/80', 'text-zinc-400', 'border', 'border-zinc-800');
-        tab.classList.add('bg-zinc-100', 'text-zinc-900', 'font-semibold', 'shadow-sm', 'active');
+        tab.classList.add('bg-white', 'text-zinc-950', 'font-semibold', 'shadow-sm', 'active');
 
         // Hide all panels, show active panel
         panels.forEach(panel => {

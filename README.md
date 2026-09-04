@@ -1,91 +1,79 @@
-# 🚀 Fernando Daniel Quispe Condori — Data & AI Portfolio
+# 🚀 Fernando Daniel Quispe Condori — Portfolio Profesional
 
-> **Software Engineer & Data/AI Specialist**  
-> Especializado en **Data Engineering**, **Data Science & ML en Producción**, y **Sistemas de Inteligencia Artificial Generativa (RAG & Agentes)**.
+> **Software Engineer | Data & AI**  
+> Formación sólida en Ingeniería de Software con experiencia práctica en analítica de datos, flujos ETL, modelado dimensional y desarrollo de sistemas, evolucionando activamente hacia **Data Engineering**, **Machine Learning** y **AI Agents**.
 
 [![Astro](https://img.shields.io/badge/Astro-5.x-BC52EE?style=flat&logo=astro&logoColor=white)](https://astro.build)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC?style=flat&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat&logo=python&logoColor=white)](https://www.python.org/)
-[![Apache Spark](https://img.shields.io/badge/Apache_Spark-Streaming-E25A1C?style=flat&logo=apache-spark&logoColor=white)](https://spark.apache.org/)
+[![SQL](https://img.shields.io/badge/SQL-Advanced-CC292B?style=flat&logo=microsoftsqlserver&logoColor=white)](https://www.microsoft.com/sql-server)
+[![Apache Spark](https://img.shields.io/badge/Apache_Spark-Data_Processing-E25A1C?style=flat&logo=apache-spark&logoColor=white)](https://spark.apache.org/)
 [![Kafka](https://img.shields.io/badge/Apache_Kafka-Event_Streams-231F20?style=flat&logo=apache-kafka&logoColor=white)](https://kafka.apache.org/)
-[![LangChain](https://img.shields.io/badge/LangChain-GenAI-1C3C3C?style=flat)](https://www.langchain.com/)
 
 ---
 
 ## 📌 Visión General
 
-Este portafolio profesional ha sido rediseñado con un enfoque de alto impacto en el ecosistema de **Datos e Inteligencia Artificial**. Combina una base sólida en principios de ingeniería de software (Clean Architecture, DDD, APIs de alta concurrencia, CI/CD) con el diseño de plataformas de datos escalables, modelos de Machine Learning explicables y soluciones avanzadas de IA Generativa.
+Portafolio profesional desarrollado con Astro y Tailwind CSS, diseñado para reflejar con transparencia, rigor técnico y credibilidad mi perfil como **Software Engineer orientado a Datos e Inteligencia Artificial**.
+
+El portafolio articula una evolución profesional clara:
+1. **Software Engineering Foundation:** Clean Code, POO, Domain-Driven Design (DDD), APIs RESTful, bases de datos relacionales, Git y contenedorización con Docker.
+2. **Data & Analytics:** Experiencia práctica en consultas SQL avanzadas, pipelines ETL/ELT, modelado dimensional (Data Warehousing), tableros en Power BI y automatización de validaciones de datos.
+3. **Data Engineering:** Diseño de arquitecturas desacopladas con Apache Kafka, transformaciones modulares con dbt Core, procesamiento distribuido con Apache Spark y almacenamiento Medallion en Delta Lake.
+4. **Machine Learning & AI:** Modelos predictivos supervisados con Scikit-Learn/XGBoost, interpretabilidad algorítmica con SHAP y prototipos de visión computacional con YOLOv8.
+5. **AI Engineering & Agentic Systems:** Asistentes RAG con bases de datos vectoriales (Qdrant), extracción estructurada con Pydantic y exploración activa de tool use y flujos agénticos (MCP).
 
 ---
 
 ## 🏛️ Casos de Estudio y Proyectos Destacados
 
-### 1. 🌾 AgriPredict & CropVision AI (Data Science & Computer Vision)
-* **Objetivo:** Detección temprana de patologías foliares y predicción de rendimiento de cosechas mediante modelos de visión artificial y telemetría de campo.
-* **Stack:** PyTorch, YOLOv8, FastAPI, PostgreSQL, Docker, Kotlin Jetpack Compose, Vue.js.
-* **Impacto:** **94.8% mAP50** en inferencia y estimación de **-35% en pérdidas de cultivo**.
+Cada proyecto se presenta como un caso de estudio con problema, solución, arquitectura, decisiones de ingeniería y stack real:
 
-### 2. ⚡ Real-Time FinTech Lakehouse & Fraud Detection (Data Engineering)
-* **Objetivo:** Ingesta de eventos transaccionales en tiempo real y arquitectura Lakehouse (Medallion: Bronze/Silver/Gold) para evaluación crediticia de comprobantes de Factoring.
-* **Stack:** Apache Kafka, Apache Spark Streaming, Delta Lake, dbt Core, PostgreSQL, DuckDB, Java Spring Boot.
-* **Impacto:** **50,000+ eventos/seg**, latencia streaming **< 140ms**, y **100% de calidad validada con dbt**.
+### 1. ⚡ FinTech Factoring & Lakehouse Architecture (Data Engineering)
+* **Tipo:** Production-inspired Architecture
+* **Problema:** Conciliación y auditoría de comprobantes financieros y letras de cambio de factoring sin sobrecargar bases transaccionales.
+* **Solución:** Flujo de datos desacoplado con buffer en Apache Kafka, transformaciones analíticas con dbt y almacenamiento estructurado en capas Medallion (Bronze/Silver/Gold) en Delta Lake.
+* **Stack:** Java Spring Boot, Apache Kafka, Apache Spark, Delta Lake, dbt Core, PostgreSQL, Docker.
+* **Repositorio:** [RESTFULApi-si642-gestor-factoring](https://github.com/fdaniel13s/RESTFULApi-si642-gestor-factoring)
 
-### 3. 🤖 DocuMind: Enterprise Factoring & Invoice RAG (Generative AI & LLMs)
-* **Objetivo:** Sistema RAG multimodal para extracción estructurada, búsqueda semántica híbrida y auditoría automatizada de comprobantes fiscales no estructurados.
-* **Stack:** LangChain, LlamaIndex, Qdrant Vector DB, FastAPI, Pydantic, OpenAI / HuggingFace Embeddings.
-* **Impacto:** **98.2% de precisión en extracción de metadatos** y **80% de reducción en tiempos de auditoría**.
+### 2. 🌾 Chaquitaclla: Telemetría Agrícola & Visión Artificial (IoT & Computer Vision)
+* **Tipo:** Academic Project (UPC)
+* **Problema:** Monitoreo accesible de variables ambientales en suelo y detección temprana de afecciones en cultivos para agricultores.
+* **Solución:** Plataforma con backend DDD en C# .NET Core, aplicación móvil nativa en Kotlin (Jetpack Compose) y prototipo de detección de síntomas foliares con YOLOv8.
+* **Stack:** C# .NET Core, Kotlin Jetpack Compose, Vue.js, Python, PyTorch, YOLOv8, PostgreSQL, Docker.
+* **Repositorio:** [RESTfulAPI-Chaquitaclla-NETCore](https://github.com/fdaniel13s/RESTfulAPI-Chaquitaclla-NETCore)
 
-### 4. 🛒 EcoMarket: Customer Analytics & MLOps Engine (Data Science & MLOps)
-* **Objetivo:** Segmentación RFM automatizada, propensión de compra y recomendador híbrido para productos de rotación rápida.
-* **Stack:** Scikit-Learn, LightGBM, XGBoost, SHAP, MLflow, Spring Boot, Angular.
-* **Impacto:** **0.912 AUC-ROC** y **+22% en retención de clientes**.
+### 3. 🤖 DocuMind: Asistente RAG para Documentos Financieros (GenAI & LLMs)
+* **Tipo:** AI Engineering Prototype
+* **Problema:** Extracción y validación manual de información tributaria no estructurada en comprobantes fiscales y contratos.
+* **Solución:** Asistente RAG con indexación semántica en base vectorial Qdrant, modelos de lenguaje mediante LangChain y esquemas estructurados Pydantic.
+* **Stack:** Python, FastAPI, LangChain, Qdrant Vector DB, Pydantic, OpenAI API, Docker.
 
-### 5. ☁️ Cloud Data Platform & Automated BI (Data Engineering & Analytics)
-* **Objetivo:** Orquestación centralizada de pipelines ELT con validaciones de calidad de datos y tableros interactivos.
-* **Stack:** Apache Airflow, dbt Core, Great Expectations, DuckDB, PostgreSQL, Streamlit.
-* **Impacto:** **SLA 99.9%** y pruebas continuas de esquemas de datos.
+### 4. 🛒 EcoMarket: Plataforma Retail & Analítica de Clientes (Data Science & Software Eng)
+* **Tipo:** Academic Project (UPC)
+* **Problema:** Retención de compradores recurrentes y predicción de abandono en productos de rotación rápida.
+* **Solución:** Plataforma de e-commerce en Java Spring Boot y Angular, con pipeline analítico para segmentación RFM y modelos de propensión explicables con SHAP.
+* **Stack:** Java, Spring Boot, Angular, TypeScript, Python, Scikit-Learn, XGBoost, PostgreSQL.
+* **Repositorio:** [RESTfulAPI-Ecomarket-SpringBoot](https://github.com/fdaniel13s/RESTfulAPI-Ecomarket-SpringBoot.git)
 
----
-
-## 🛠️ Stack Tecnológico Clasificado
-
-| Dominio | Tecnologías Principales |
-| :--- | :--- |
-| **Data Engineering** | Apache Spark, PySpark, Apache Kafka, Apache Airflow, dbt Core, Delta Lake, PostgreSQL, DuckDB, Docker |
-| **Data Science & ML** | Python, NumPy, Pandas, Scikit-Learn, XGBoost, LightGBM, PyTorch, SHAP, Optuna |
-| **Generative AI & LLMs** | LangChain, LlamaIndex, Qdrant Vector DB, Chroma, RAG Híbrido (Dense + BM25), Prompt Engineering |
-| **MLOps & Data Quality** | MLflow, Great Expectations, DVC, GitHub Actions CI/CD, AWS (S3, Lambda, EC2) |
-| **Visualización & BI** | Streamlit, Power BI, Plotly, Seaborn, Matplotlib, Apache Superset |
-| **Software Engineering** | FastAPI, Java Spring Boot, C# .NET Core, Kotlin Compose, TypeScript, Vue.js, Angular |
+### 5. ☁️ Data Pipeline & Automated BI Analytics (Data Engineering & Analytics)
+* **Tipo:** Engineering Project
+* **Problema:** Inconsistencias en reportes de negocio derivadas de cargas manuales y falta de pruebas automatizadas de datos.
+* **Solución:** Orquestación de flujos ELT con Apache Airflow, transformaciones declarativas con dbt Core, validaciones continuas de esquema y modelado dimensional para Power BI.
+* **Stack:** Apache Airflow, dbt Core, Great Expectations, DuckDB, PostgreSQL, Power BI, Docker.
 
 ---
 
-## 🚀 Estructura del Proyecto
+## 🛠️ Stack Tecnológico Organizado
 
-```text
-portfolio/
-├── public/
-│   └── images/
-│       ├── projects/         # Capturas de casos de estudio
-│       └── fernando-quispe.* # Foto de perfil y favicon
-├── src/
-│   ├── components/
-│   │   ├── header.astro            # Barra de navegación con glassmorphism
-│   │   ├── hero.astro              # Hero section con métricas de impacto
-│   │   ├── data-architecture.astro # Diagrama de capas del ciclo de vida de datos
-│   │   ├── skills.astro            # Panel interactivo por dominios de datos
-│   │   ├── projects.astro          # Vitrina de proyectos con filtrado dinámico
-│   │   ├── experience.astro        # Línea de tiempo académica y profesional
-│   │   ├── contact.astro           # Call-to-action con copiado rápido de correo
-│   │   ├── footer.astro            # Pie de página y enlaces
-│   │   └── theme-toggle.astro      # Selector interactivo de Modo Claro / Oscuro
-│   ├── layouts/
-│   │   └── main-layout.astro       # Layout principal optimizado con SEO y fuentes
-│   └── pages/
-│       └── index.astro             # Página de inicio
-├── tailwind.config.mjs             # Configuración de Tailwind CSS con paleta Data/AI
-└── package.json
-```
+| Área | Tecnologías Principales | Contexto |
+| :--- | :--- | :--- |
+| **Core Software & Data** | Python, SQL, Software Engineering (POO/DDD), Data Modeling, RESTful APIs, Git | Fundación técnica |
+| **Data Engineering** | Apache Spark / PySpark, Apache Kafka, Apache Airflow, dbt Core, Delta Lake, PostgreSQL, DuckDB | Pipelines & diseño |
+| **Data & Analytics** | SQL Server, Power BI, Pipelines ETL, Data Warehousing, Validación de Datos, Automatización | Experiencia práctica |
+| **AI & Machine Learning** | Scikit-Learn, XGBoost, CatBoost, Computer Vision (YOLOv8), RAG & Vector DBs (Qdrant), PyTorch | Proyectos aplicados |
+| **Cloud & DevOps** | Docker, Microsoft Azure (Data Fundamentals), Snowflake, AWS (S3/EC2), Linux/Bash, CI/CD | Infraestructura |
+| **Currently Learning** | AI Agents & Tool Use, Model Context Protocol (MCP), Agent Orchestration, Advanced RAG, MLOps | Aprendizaje activo |
 
 ---
 
@@ -107,11 +95,9 @@ npm run preview
 
 ---
 
-## 📬 Contacto & Redes
+## 📬 Contacto & Enlaces
 
 * **LinkedIn:** [Fernando Quispe](https://www.linkedin.com/in/fernando-quispe-5532901b4/)
 * **GitHub:** [@fdaniel13s](https://github.com/fdaniel13s)
 * **Correo Electrónico:** [ferndani2718@gmail.com](mailto:ferndani2718@gmail.com)
-* **YouTube:** [@danifern2729](https://www.youtube.com/@danifern2729)
 * **Currículum Vitae:** [Descargar PDF](https://drive.google.com/file/d/1zpLKsT-llOvlMkJbGSawzjoeXDz0qFOf/view?usp=sharing)
-

@@ -1,40 +1,51 @@
 ---
-// experience.astro
-const experiences = [
+// src/components/experience.astro
+
+const professionalExperience = [
   {
-    period: "2023 - Presente",
-    role: "Data & AI Solutions Developer",
-    organization: "Proyectos de Impacto & Consultoría",
-    description: "Diseño e implementación de plataformas de datos end-to-end: arquitecturas Lakehouse (Kafka, Spark, Delta Lake), pipelines RAG empresariales y despliegue de modelos de Machine Learning con explicabilidad SHAP y observabilidad con MLflow.",
-    achievements: [
-      "Diseño de arquitectura Lakehouse con latencia menor a 150ms para evaluación crediticia de comprobantes.",
-      "Desarrollo de sistemas RAG híbridos logrando 98.2% de precisión en extracción de metadatos fiscales.",
-      "Optimización de modelos predictivos y computer vision para agritech con 94.8% mAP50."
+    period: "Experiencia Práctica",
+    role: "Data Analytics, ETL & Automatización de Procesos",
+    category: "Datos & Analítica Empresarial",
+    context: "Sistemas & Flujos de Datos",
+    description: "Trabajo práctico en el ciclo de vida de datos analíticos: extracción desde fuentes operacionales, diseño de flujos ETL, modelado dimensional y generación de reportes ejecutivos.",
+    highlights: [
+      "Diseño y optimización de consultas complejas en SQL para extracción, agregación, limpieza y validación de datos transaccionales.",
+      "Construcción y mantenimiento de pipelines ETL para alimentar esquemas de Data Warehousing (tablas de hechos y dimensiones).",
+      "Modelado dimensional y desarrollo de tableros interactivos en Power BI con medidas DAX para seguimiento de KPIs de negocio.",
+      "Automatización de procesos repetitivos de conciliación y control de calidad de datos, reduciendo inconsistencias operativas.",
+      "Integración de datos y consultas sobre entornos cloud (Microsoft Azure / Snowflake) asegurando trazabilidad y disponibilidad."
     ],
-    skills: ["Apache Spark", "Apache Kafka", "LangChain", "Qdrant", "FastAPI", "dbt", "MLflow"]
+    skills: ["SQL", "ETL", "Data Warehousing", "Power BI", "DAX", "Azure", "Snowflake", "Data Validation", "Automatización"]
   },
   {
-    period: "2021 - 2024",
-    role: "Software Engineer — Backend & Mobile Focus",
-    organization: "Proyectos Académicos & Enterprise Apps",
-    description: "Construcción de microservicios robustos y aplicaciones multiplataforma con Domain-Driven Design (DDD), patrones de diseño de software y metodologías ágiles.",
-    achievements: [
-      "Implementación de APIs RESTful con C# .NET Core y Java Spring Boot con alta concurrencia y cobertura de pruebas.",
-      "Desarrollo de frontend reactivo con Vue.js/Angular y aplicaciones móviles nativas en Kotlin con Jetpack Compose.",
-      "Configuración de pipelines CI/CD y despliegue contenerizado con Docker."
+    period: "Desarrollo & Proyectos de Software",
+    role: "Software Engineering & Backend Development",
+    category: "Ingeniería de Software",
+    context: "Aplicaciones & Arquitectura",
+    description: "Diseño y desarrollo de microservicios, APIs de datos y aplicaciones multiplataforma con estándares de código limpio y arquitectura modular.",
+    highlights: [
+      "Construcción de APIs RESTful en C# (.NET Core) y Java (Spring Boot) siguiendo patrones arquitectónicos Clean Architecture y DDD.",
+      "Diseño y modelado de bases de datos relacionales (PostgreSQL, SQL Server), optimización de índices e integridad referencial.",
+      "Desarrollo de interfaces reactivas para la web y aplicaciones móviles nativas para Android con Kotlin y Jetpack Compose.",
+      "Control de versiones riguroso con Git/GitHub, contenedorización de servicios con Docker y configuración de flujos CI/CD."
     ],
-    skills: ["Java", "Spring Boot", "C#", ".NET Core", "Kotlin", "Docker", "PostgreSQL"]
-  },
+    skills: ["Python", "Java", "Spring Boot", "C#", ".NET Core", "PostgreSQL", "Docker", "Git", "Clean Architecture"]
+  }
+];
+
+const academicFormation = [
   {
-    period: "2020 - Presente",
-    role: "Ingeniería de Software",
-    organization: "Universidad Peruana de Ciencias Aplicadas (UPC)",
-    description: "Formación académica rigurosa en computación, estructuras de datos avanzadas, diseño de sistemas distribuidos, minería de datos e inteligencia artificial.",
-    achievements: [
-      "Liderazgo en proyectos interdisciplinarios de desarrollo de software y analítica aplicada.",
-      "Especialización continua en Big Data, Machine Learning Engineering y Cloud Computing."
+    period: "2020 - 2024",
+    degree: "Bachiller en Ingeniería de Software",
+    institution: "Universidad Peruana de Ciencias Aplicadas (UPC)",
+    location: "Lima, Perú",
+    description: "Formación académica integral en fundamentos de ciencias de la computación, ingeniería de software, arquitectura de sistemas y gestión de datos.",
+    highlights: [
+      "Bases sólidas en Programación Orientada a Objetos (POO), Estructuras de Datos Avanzadas, Algoritmos y Patrones de Diseño.",
+      "Cursos especializados en Minería de Datos, Redes y Sistemas Distribuidos, Arquitectura de Software y Seguridad.",
+      "Desarrollo de proyectos interdisciplinarios aplicando metodologías ágiles (Scrum) y entregas continuas de software."
     ],
-    skills: ["Algoritmos", "Estructuras de Datos", "Sistemas Distribuidos", "Arquitectura de Software", "Bases de Datos"]
+    skills: ["Estructuras de Datos", "Algoritmos", "Sistemas Distribuidos", "Minería de Datos", "Arquitectura de Software", "Bases de Datos"]
   }
 ];
 ---
@@ -44,64 +55,155 @@ const experiences = [
   <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
     <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono mb-4">
       <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-      Trayectoria
+      Trayectoria Comprobable
     </div>
     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight">
-      Experiencia & Formación Académica
+      Experiencia Profesional & Formación
     </h2>
     <p class="mt-3 text-sm sm:text-base text-zinc-400 max-w-2xl mx-auto">
-      Una base sólida de Ingeniería de Software aplicada a la resolución de problemas complejos en el ecosistema de Datos e Inteligencia Artificial.
+      Separación clara entre mi trabajo real con datos/software y mi formación académica. Los proyectos personales y prototipos se detallan de forma independiente como casos de estudio.
     </p>
   </div>
 
-  <div class="max-w-3xl mx-auto w-full">
-    <div class="relative border-l border-zinc-800 ml-4 sm:ml-6 space-y-10">
-    {experiences.map((item) => (
-      <div class="relative pl-6 sm:pl-8 group">
-        <!-- Marker Point -->
-        <div class="absolute -left-[5px] top-2 w-2.5 h-2.5 rounded-full bg-zinc-950 border-2 border-cyan-400 group-hover:scale-125 transition-transform"></div>
-
-        <div class="p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800/80 hover:border-zinc-700 transition-colors">
-          
-          <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
-            <span class="text-xs font-mono font-medium text-cyan-400 bg-zinc-800 px-2.5 py-0.5 rounded-md self-start">
-              {item.period}
-            </span>
-            <span class="text-xs text-zinc-400 font-medium">
-              {item.organization}
-            </span>
-          </div>
-
-          <h3 class="text-lg font-bold text-white mt-2">
-            {item.role}
-          </h3>
-
-          <p class="text-sm text-zinc-400 mt-2 leading-relaxed">
-            {item.description}
-          </p>
-
-          <!-- Achievements -->
-          <ul class="mt-4 space-y-1.5 text-xs sm:text-sm text-zinc-300">
-            {item.achievements.map((ach) => (
-              <li class="flex items-start gap-2">
-                <span class="text-cyan-400 mt-0.5">&bull;</span>
-                <span>{ach}</span>
-              </li>
-            ))}
-          </ul>
-
-          <!-- Tags -->
-          <div class="mt-5 pt-4 border-t border-zinc-800/70 flex flex-wrap gap-1.5">
-            {item.skills.map((skill) => (
-              <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-800/70 text-zinc-300 border border-zinc-700/40">
-                {skill}
-              </span>
-            ))}
-          </div>
-
-        </div>
+  <div class="max-w-4xl mx-auto space-y-12">
+    
+    <!-- Block 1: Professional Experience -->
+    <div>
+      <div class="flex items-center gap-3 mb-6 pb-2 border-b border-zinc-800">
+        <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+        <h3 class="text-lg sm:text-xl font-bold text-white tracking-wide">
+          Experiencia Profesional en Datos & Software
+        </h3>
+        <span class="text-xs text-zinc-400 font-mono hidden sm:inline">&bull; Trabajo con sistemas reales</span>
       </div>
-    ))}
+
+      <div class="space-y-6">
+        {professionalExperience.map((exp) => (
+          <div class="p-6 sm:p-7 rounded-2xl bg-zinc-900/50 border border-zinc-800/80 hover:border-zinc-700 transition-colors">
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 mb-3 border-b border-zinc-800/60">
+              <div>
+                <span class="text-xs font-mono font-semibold text-cyan-400 bg-cyan-500/10 px-2.5 py-0.5 rounded-md border border-cyan-500/20">
+                  {exp.category}
+                </span>
+                <h4 class="text-lg font-bold text-white mt-2">
+                  {exp.role}
+                </h4>
+              </div>
+              <div class="text-left sm:text-right">
+                <span class="text-xs font-mono text-zinc-300 bg-zinc-800 px-2.5 py-1 rounded-md">
+                  {exp.period}
+                </span>
+                <span class="block text-[11px] text-zinc-400 mt-1 font-mono">
+                  {exp.context}
+                </span>
+              </div>
+            </div>
+
+            <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-4">
+              {exp.description}
+            </p>
+
+            <!-- Responsibilities & Highlights -->
+            <div class="space-y-2 mb-5">
+              <span class="text-xs font-mono text-zinc-400 uppercase tracking-wider block">
+                Responsabilidades & Competencias Clave:
+              </span>
+              <ul class="space-y-2 text-xs sm:text-sm text-zinc-300">
+                {exp.highlights.map((item) => (
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-cyan-400 mt-0.5">&bull;</span>
+                    <span class="leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <!-- Tags -->
+            <div class="pt-4 border-t border-zinc-800/60 flex flex-wrap gap-1.5">
+              {exp.skills.map((skill) => (
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-800/70 text-zinc-300 border border-zinc-700/40">
+                  {skill}
+                </span>
+              ))}
+            </div>
+
+          </div>
+        ))}
+      </div>
     </div>
+
+    <!-- Block 2: Academic Formation -->
+    <div>
+      <div class="flex items-center gap-3 mb-6 pb-2 border-b border-zinc-800">
+        <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+        <h3 class="text-lg sm:text-xl font-bold text-white tracking-wide">
+          Formación Académica
+        </h3>
+        <span class="text-xs text-zinc-400 font-mono hidden sm:inline">&bull; Grado universitario oficial</span>
+      </div>
+
+      <div class="space-y-6">
+        {academicFormation.map((edu) => (
+          <div class="p-6 sm:p-7 rounded-2xl bg-zinc-900/50 border border-zinc-800/80 hover:border-zinc-700 transition-colors">
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-3 mb-3 border-b border-zinc-800/60">
+              <div>
+                <span class="text-xs font-mono font-semibold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-md border border-emerald-500/20">
+                  {edu.institution}
+                </span>
+                <h4 class="text-lg font-bold text-white mt-2">
+                  {edu.degree}
+                </h4>
+              </div>
+              <div class="text-left sm:text-right">
+                <span class="text-xs font-mono text-zinc-300 bg-zinc-800 px-2.5 py-1 rounded-md">
+                  {edu.period}
+                </span>
+                <span class="block text-[11px] text-zinc-400 mt-1 font-mono">
+                  {edu.location}
+                </span>
+              </div>
+            </div>
+
+            <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed mb-4">
+              {edu.description}
+            </p>
+
+            <ul class="space-y-2 text-xs sm:text-sm text-zinc-300 mb-5">
+              {edu.highlights.map((item) => (
+                <li class="flex items-start gap-2.5">
+                  <span class="text-emerald-400 mt-0.5">&bull;</span>
+                  <span class="leading-relaxed">{item}</span>
+                </li>
+              ))}
+            </ul>
+
+            <div class="pt-4 border-t border-zinc-800/60 flex flex-wrap gap-1.5">
+              {edu.skills.map((skill) => (
+                <span class="text-[11px] font-mono px-2 py-0.5 rounded bg-zinc-800/70 text-zinc-300 border border-zinc-700/40">
+                  {skill}
+                </span>
+              ))}
+            </div>
+
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Notice / Clarification for Recruiters -->
+    <div class="p-4 sm:p-5 rounded-xl bg-zinc-950/80 border border-zinc-800 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <span class="text-cyan-400 text-base">💡</span>
+        <p class="text-xs sm:text-sm text-zinc-300">
+          ¿Buscas ver implementaciones de código, arquitecturas y prototipos técnicos? Explora la sección de <a href="#projects" class="text-cyan-400 hover:underline font-medium">Proyectos</a> estructurada como pequeños casos de estudio.
+        </p>
+      </div>
+      <a href="#projects" class="hidden sm:inline text-xs font-semibold text-cyan-400 hover:underline flex-shrink-0">
+        Ver Casos de Estudio &rarr;
+      </a>
+    </div>
+
   </div>
 </section>

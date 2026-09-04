@@ -1,0 +1,89 @@
+---
+// src/components/engineering-journey.astro
+const steps = [
+  {
+    phase: "01",
+    label: "Fundación",
+    title: "Software Engineering",
+    desc: "Clean Code, POO, DDD, diseño de APIs RESTful, modelado relacional y control de versiones con Git como cimiento de todo sistema.",
+    icon: "💻",
+    highlight: "Cimiento Técnico"
+  },
+  {
+    phase: "02",
+    label: "Experiencia Real",
+    title: "Data & Analytics",
+    desc: "Consultas complejas en SQL, pipelines ETL, Data Warehousing, tableros en Power BI y automatización de calidad de datos.",
+    icon: "📊",
+    highlight: "Sistemas Reales"
+  },
+  {
+    phase: "03",
+    label: "Escalabilidad",
+    title: "Data Engineering",
+    desc: "Ingesta estructurada con Apache Kafka, transformaciones analíticas con dbt y Spark, y almacenamiento por capas Medallion.",
+    icon: "⚡",
+    highlight: "Pipelines & Datos"
+  },
+  {
+    phase: "04",
+    label: "Evolución Activa",
+    title: "AI & Agentic Systems",
+    desc: "Modelos predictivos supervisados, explicabilidad SHAP, asistentes RAG con bases vectoriales y flujos con agentes autónomos.",
+    icon: "🤖",
+    highlight: "Capacidades AI"
+  },
+];
+---
+
+<section id="journey" class="py-14 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full relative z-10">
+  
+  <div class="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-zinc-800/80 pb-4">
+    <div>
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono mb-2">
+        <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+        Storytelling Profesional
+      </div>
+      <h2 class="text-xl sm:text-2xl font-bold text-white tracking-tight">
+        Engineering Journey <span class="text-zinc-500 font-normal text-base sm:text-lg">/ Cómo construyo valor</span>
+      </h2>
+    </div>
+    <p class="text-xs sm:text-sm text-zinc-400 max-w-md">
+      Software Engineering es la base sobre la cual diseño y construyo plataformas de datos y sistemas de inteligencia artificial.
+    </p>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+    {steps.map((step) => (
+      <div class="p-5 sm:p-6 rounded-2xl bg-zinc-900/50 border border-zinc-800/80 hover:border-zinc-700 transition-all flex flex-col justify-between group">
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <span class="text-xs font-mono font-semibold px-2 py-0.5 rounded bg-zinc-800 text-cyan-400 border border-zinc-700/60">
+              Fase {step.phase}
+            </span>
+            <span class="text-xs text-zinc-400 font-mono">
+              {step.label}
+            </span>
+          </div>
+
+          <div class="flex items-center gap-2.5 my-2">
+            <span class="text-xl">{step.icon}</span>
+            <h3 class="text-base font-bold text-white group-hover:text-cyan-400 transition-colors">
+              {step.title}
+            </h3>
+          </div>
+
+          <p class="text-xs text-zinc-400 mt-2 leading-relaxed">
+            {step.desc}
+          </p>
+        </div>
+
+        <div class="pt-4 mt-4 border-t border-zinc-800/60 flex items-center justify-between text-[11px] font-mono text-zinc-400">
+          <span>Enfoque</span>
+          <span class="text-zinc-200 font-medium">{step.highlight}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+
+</section>

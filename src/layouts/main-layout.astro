@@ -1,13 +1,14 @@
 ---
-const { title = "Fernando Quispe | Software Engineer & Data/AI Specialist" } = Astro.props;
+const { title = "Fernando Quispe | Software Engineer | Data & AI" } = Astro.props;
 import Header from '../components/header.astro';
 import Hero from '../components/hero.astro';
+import EngineeringJourney from '../components/engineering-journey.astro';
 import AboutMe from '../components/about-me.astro';
-import StatsBanner from '../components/stats-banner.astro';
-import DataArchitecture from '../components/data-architecture.astro';
-import Skills from '../components/skills.astro';
-import Projects from '../components/projects.astro';
 import Experience from '../components/experience.astro';
+import DataArchitecture from '../components/data-architecture.astro';
+import AgenticAI from '../components/agentic-ai.astro';
+import Projects from '../components/projects.astro';
+import Skills from '../components/skills.astro';
 import Contact from '../components/contact.astro';
 import Footer from '../components/footer.astro';
 ---
@@ -22,14 +23,14 @@ import Footer from '../components/footer.astro';
     
     <!-- SEO Meta Tags -->
     <title>{title}</title>
-    <meta name="description" content="Portafolio profesional de Fernando Quispe (Fernando.dev). Software Engineer especializado en Data Science, Data Engineering, Lakehouse, Streaming con Kafka/Spark y GenAI / LLMs." />
-    <meta name="keywords" content="Fernando Quispe, Fernando.dev, fdaniel13s, Data Engineer, Data Science, AI Specialist, Apache Spark, Kafka, Python, PyTorch, LangChain, Lima Peru" />
+    <meta name="description" content="Portafolio profesional de Fernando Quispe. Software Engineer enfocado en Data & AI: analítica de datos, flujos ETL, Data Engineering, Machine Learning y sistemas agénticos." />
+    <meta name="keywords" content="Fernando Quispe, fdaniel13s, Software Engineer, Data Engineer, Data Analyst, AI Engineer, Python, SQL, Power BI, Apache Spark, Kafka, FastAPI, dbt, Lima Peru" />
     <meta name="author" content="Fernando Daniel Quispe Condori" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Fernando Quispe | Software Engineer & Data/AI Specialist" />
-    <meta property="og:description" content="Portafolio de proyectos de alto impacto en Data Science, Data Engineering e Inteligencia Artificial." />
+    <meta property="og:title" content="Fernando Quispe | Software Engineer | Data & AI" />
+    <meta property="og:description" content="Software Engineer construyendo capacidades sólidas en Data & AI: fundamentos de software, analítica práctica, pipelines de datos e inteligencia artificial." />
     <meta property="og:image" content="/images/fernando-quispe.jpg" />
 
     <!-- Fonts: Plus Jakarta Sans & JetBrains Mono -->
@@ -55,12 +56,13 @@ import Footer from '../components/footer.astro';
       
       <main class="flex-1 w-full">
         <Hero />
+        <EngineeringJourney />
         <AboutMe />
-        <StatsBanner />
-        <DataArchitecture />
-        <Skills />
-        <Projects />
         <Experience />
+        <DataArchitecture />
+        <AgenticAI />
+        <Projects />
+        <Skills />
         <Contact />
         <slot />
       </main>
